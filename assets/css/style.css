@@ -34,6 +34,7 @@ nav{
 
 .btn:active{
     background-color: var(--buttonHover) !important;
+    border-color: var(--buttonHover) !important;
 }
 
 .jumbotron{
