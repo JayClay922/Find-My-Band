@@ -2,14 +2,15 @@
     --background: #000000;
     --darkblue: #14213D;
     --button: #FCA311;
-    --buttonHover: #cf8611;
+    --buttonHover: #db8e13;
     --container: #E5E5E5;
     --text: #FFFFFF;
 }
 
-body{
-    background-color: var(--background);
-    color: var(--text);
+#main{
+    background-image: url(../images/rockOn_dark.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 nav{
@@ -26,6 +27,30 @@ nav{
     border-color: var(--buttonHover);
 }
 
+.btn:focus{
+    background-color: var(--buttonHover);
+    border-color: var(--buttonHover);
+}
+
+.btn:active{
+    background-color: var(--buttonHover) !important;
+}
+
 .jumbotron{
     background-color: var(--container);
+}
+
+.modal-content{
+    background-color: var(--darkblue);
+    color: var(--text);
+}
+
+.close {
+    color: var(--text); 
+    opacity: 1;
+}
+
+.close:hover {
+    color: var(--container); 
+    opacity: 1;
 }
