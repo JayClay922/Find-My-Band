@@ -23,20 +23,19 @@ $("#search-button").on("click", function(){
     //     console.log(response);
     // });
 
-    var response = artistNotFound; //Test data
+    var response = concertEventsTrackerTestResponse; //Test data
 
     if(response.data === undefined || response.data.length === 0){ //Checks if artist exsits
         console.log("Artist not found");
 
         // --- Write code here to display artist not found modal ---
-        
+
     }
     else{
         var tempArtistData = []; //Temporary Array for Artist venue data
-        var tempDataObject = {}; //Temporary Object to store instances of 
     
         for (var i = 0; i < response.data.length; i++){
-            var tempDataObject = {};
+            var tempDataObject = {}; //Temporary Object to store instances of 
     
             tempDataObject["artist"] = response.data[i].name;
             tempDataObject["description"] = response.data[i].description;
