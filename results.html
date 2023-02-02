@@ -18,7 +18,7 @@
     <!-- Header -->
     <header>
         <!-- Remove bg-dark class if changing styles  -->
-        <nav class="navbar navbar-dark bg-dark justify-content-center">
+        <nav class="navbar navbar-dark  justify-content-center">
             <span class="navbar-brand mb-1 h1">Find My Band</span>
         </nav>
     </header>  
@@ -27,15 +27,40 @@
     <section>
         <div class="jumbotron">
             <div class="container">
+                <!-- gx is for the gutter -->
+                <div class="row gx-5 justify-content-center">
+    <!-- Div container for results-->
+                    <div class="col-md-6 p-5 bg-light" id="user-info">
+    <!-- Remove content. Just for building -->
+                        <p>Artist/Band Name</p>
+                        <p>Address</p>
+                        <p>Country</p>
 
-    
+<!-- Div container for -->
+<!-- Info upcoming events -->
+                        <div class="upcoming-events p-5 bg-danger" id="events-list"> <!-- Remove padding-->
+    <!-- Remove content. Just for building -->
+                            <p>Upcoming events will display here</p>
+                        </div>
 
+                    </div>
+
+                        <div class="col-md-6 p-5 bg-dark justify-content-center" id="#">
+<!-- Div container for map -->
+                            <div class="container justify-content-center" id="my-map">
+    <!-- Remove img. Just for building -->
+                                <img src="https://placehold.co/300x300" alt="">
+                            </div>
+
+                        </div>
+
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer class="fixed-bottom">
         <div class="container">
             <p>&copy; Find My Band - 2023</p>
         </div>
