@@ -2,6 +2,30 @@
     --background: #000000;
     --darkblue: #14213D;
     --button: #FCA311;
-    --heading: #E5E5E5;
+    --buttonHover: #cf8611;
+    --container: #E5E5E5;
     --text: #FFFFFF;
-  }
+}
+
+body{
+    background-color: var(--background);
+    color: var(--text);
+}
+
+nav{
+    background-color: var(--darkblue);
+}
+
+.btn{
+    background-color: var(--button);
+    border-color: var(--button);
+}
+
+.btn:hover{
+    background-color: var(--buttonHover);
+    border-color: var(--buttonHover);
+}
+
+.jumbotron{
+    background-color: var(--container);
+}
