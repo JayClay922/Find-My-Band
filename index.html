@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+
+    <!-- link to css -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Find My Band</title>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <!-- Remove bg-dark class if changing styles  -->
+        <nav class="navbar navbar-dark bg-dark justify-content-center">
+            <span class="navbar-brand mb-1 h1">Find My Band</span>
+        </nav>
+    </header>  
+
+    <!-- Main -->
+    <section>
+        <div class="jumbotron">
+            <div class="container">
+
+    <!-- Button trigger for modal -->
+    <!-- Remove btn-primary class if changing styles  -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Search ...
+    </button>
+  
+    <!-- Modal Start  ---------------------- -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Search Find My Band?</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+          Content goes here !
+            </div>
+            <div class="modal-footer">
+                <!-- Remove btn-primary class if changing styles  -->
+            <button type="button" class="btn btn-primary">Search</button>
+            </div>
+        </div>
+        </div>
+    </div>
+    <!-- Modal end ---------------------- -->
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+
+    </footer>
+    
+
+    <!-- jQuery and Bootstrap js -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+    
+
+    <!-- link to find-my-band.js -->
+    <script src="key.js"></script>
+    <script src="assets/javascript/find-my-band.js"></script>
+</body>
+</html>
