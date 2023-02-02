@@ -7,19 +7,23 @@
     --text: #FFFFFF;
 }
 
-#main{
-    background-image: url(../images/rockOn_dark.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
+body{
+    background-color: var(--background);
 }
 
 nav{
     background-color: var(--darkblue);
 }
 
+#main-search-box{
+    background-color: var(--darkblue);
+    color: var(--text);
+}
+
 .btn{
     background-color: var(--button);
     border-color: var(--button);
+    color: var(--text);
 }
 
 .btn:hover{
@@ -38,6 +42,9 @@ nav{
 
 .jumbotron{
     background-color: var(--container);
+    background-image: url(../images/rockOn_dark.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .modal-content{
