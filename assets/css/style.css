@@ -15,9 +15,14 @@ nav{
     background-color: var(--darkblue);
 }
 
+section{
+    height:auto;
+}
+
 #main-search-box{
     background-color: var(--darkblue);
     color: var(--text);
+    transform: translateY(20vh);
 }
 
 .btn{
@@ -46,6 +51,7 @@ nav{
     background-image: url(../images/rockOn_dark.jpg);
     background-size: cover;
     background-repeat: no-repeat;
+    height:80vh;
 }
 
 .modal-content{
@@ -61,4 +67,8 @@ nav{
 .close:hover {
     color: var(--container); 
     opacity: 1;
+}
+
+footer{
+    position: sticky;
 }
