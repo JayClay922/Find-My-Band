@@ -66,6 +66,7 @@ $("#test-data-button").on("click", function(){
         console.log(validCountryVenuesData);
 
         for (var i = 0; i < validCountryVenuesData.length; i++){ //Loops through tempt data and creates a card for each venue
+            var eventCarousel = $("<div>").attr("class", "carousel-item");
             var eventCard = $("<div>").attr("class", "card");
             var eventCardContent =$("<div>").attr("class", "card-body");
             var venueName = $("<h2>").text(validCountryVenuesData[i].venue);
@@ -85,8 +86,9 @@ $("#test-data-button").on("click", function(){
             eventCardContent.append(address);
             eventCardContent.append(viewDirections);
             eventCard.append(eventCardContent);
+            eventCarousel.append(eventCard);
 
-            $("#events-list").append(eventCard);
+            $("#events-list").append(eventCarousel);
         }
 
         $("a").on("click", function(){
