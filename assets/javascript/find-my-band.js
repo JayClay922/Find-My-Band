@@ -1,6 +1,6 @@
 // Artists Events Tracker --------------------------------------------------------------------------------
 
-$("#search-button").on("click", function(){
+$("#test-data-button").on("click", function(){
     console.log("Finding artist information");
     
     var userArtistInput = $("#artist-name-search").val(); //Takes user inputted artist/band
@@ -32,23 +32,49 @@ $("#search-button").on("click", function(){
 
     }
     else{
-        var tempArtistData = []; //Temporary Array for Artist venue data
-    
+        var tempArtistPerformanceData = []; //Temporary Array for Artist venue data
+        var tempArtistInfoData = {};
+
+        tempArtistInfoData["artist"] = response.data[0].name;
+        tempArtistInfoData["image"] = response.data[0].image;
+
+        let artistBio = $("<div>").attr("class", "artistBio");
+        artistBio.css("background-image", "url("+ response.data[0].image+ ")");
+        let artistName = $("<p>").text(tempArtistInfoData.artist+ "'s Upcoming Events");
+        artistBio.append(artistName);
+        $("#artist-bio").prepend(artistBio);
+
         for (var i = 0; i < response.data.length; i++){
             var tempDataObject = {}; //Temporary Object to store instances of 
     
-            tempDataObject["artist"] = response.data[i].name;
             tempDataObject["description"] = response.data[i].description;
-            tempDataObject["image"] = response.data[i].image;
             tempDataObject["venue"] = response.data[i].location.name;
             tempDataObject["address"] = response.data[i].location.address;
             tempDataObject["latitude"] = response.data[i].location.geo.latitude;
             tempDataObject["longitude"] = response.data[i].location.geo.longitude;
             tempDataObject["startdate"] = response.data[i].startDate;
     
-            tempArtistData.push(tempDataObject); //Adds temp object to temp array
+            tempArtistPerformanceData.push(tempDataObject); //Adds temp object to temp array
         }
 
-        console.log(tempArtistData);
+        console.log(tempArtistPerformanceData);
+
+        for (var i = 0; i < tempArtistPerformanceData.length; i++){
+            var eventCard = $("<div>").attr("class", "eventCard");
+            var venueName = $("<h2>").text(tempArtistPerformanceData[i].venue);
+            var eventDate = $("<h2>").text(tempArtistPerformanceData[i].startdate);
+            var address = $("<p>").text("Located at: "+
+                tempArtistPerformanceData[i].address.streetAddress+ " "+
+                tempArtistPerformanceData[i].address.addressLocality+ " "+
+                tempArtistPerformanceData[i].address.postalCode+ " "+
+                tempArtistPerformanceData[i].address.addressCountry
+                );
+
+            eventCard.append(venueName);
+            eventCard.append(eventDate);
+            eventCard.append(address);
+
+            $("#events-list").prepend(eventCard);
+        }
     }
 });

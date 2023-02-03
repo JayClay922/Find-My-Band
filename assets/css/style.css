@@ -72,3 +72,23 @@ section{
 footer{
     position: sticky;
 }
+
+.artistBio{
+    display: flex;
+    flex-direction: row;
+    background-color: var(--darkblue);
+    color: var(--text);
+    padding:20px;
+}
+
+#events-list{
+    display: flex;
+    justify-content: space-between;
+    overflow-x: scroll;
+    color: var(--text);
+}
+
+.eventCard{
+    background-color: var(--darkblue);
+    white-space: pre-wrap;
+}
