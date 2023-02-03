@@ -81,6 +81,7 @@ fetch(
       routeInfo(journeyObj);
       addLayerEvents();
       drawRoute();
+      calcDistanceAndTime();
     },
     (err) => console.log(err)
   );
@@ -144,4 +145,13 @@ function addLayerEvents() {
     const properties = e.features[0].properties;
     const point = e.features[0].geometry.coordinates;
   });
+}
+
+function calcDistanceAndTime() {
+    let distance = routeData.features[0].properties.distance;
+    let distanceInMiles = (distance/1609.344).toFixed(2);
+    console.log(distanceInMiles);
+    let time = routeData.features[0].properties.time;
+    let timeInHours = (time*0.00027778).toFixed(2);
+    console.log(timeInHours);
 }
