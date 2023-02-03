@@ -11,7 +11,6 @@ var map = new maplibregl.Map({
     zoom: 11
 });
 
-
 map.addControl(new maplibregl.NavigationControl());
 
 const popup = new maplibregl.Popup();
@@ -23,3 +22,8 @@ const fromWaypointMarker = new maplibregl.Marker().setLngLat(fromWaypoint)
 const toWaypoint = [eventLong, eventLat]; // longitude, latutude
 const toWaypointMarker = new maplibregl.Marker().setLngLat(toWaypoint)
   .setPopup(new maplibregl.Popup().setText()).addTo(map);
+
+fetch(`https://api.geoapify.com/v1/routing?waypoints=lonlat:${fromWaypoint.join(",")}|lonlat:${toWaypoint.join(",")}&mode=drive&details=route_details&apiKey=${geoapifyKey}`).then(res => res.json()).then(routeResult => {
+    routeData = routeResult;
+    console.log(routeData);
+});
