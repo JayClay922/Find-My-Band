@@ -66,6 +66,8 @@ $("#test-data-button").on("click", function(){
         console.log(validCountryVenuesData);
 
         for (var i = 0; i < validCountryVenuesData.length; i++){ //Loops through tempt data and creates a card for each venue
+     
+            var eventCarousel = $("<div>").attr("class", "carousel-item");
             var eventCarousel = $("<div>").attr("class", "carousel-item");
             var eventCard = $("<div>").attr("class", "card");
             var eventCardContent =$("<div>").attr("class", "card-body");
@@ -88,7 +90,8 @@ $("#test-data-button").on("click", function(){
             eventCard.append(eventCardContent);
             eventCarousel.append(eventCard);
 
-            $("#events-list").append(eventCarousel);
+            $("#events-carousel").append(eventCarousel); //Cards are appended to carousel
+            $('.carousel-item').first().addClass('active'); //Sets first card to be active to enable the carousel to work
         }
 
         $("a").on("click", function(){
