@@ -43,10 +43,36 @@
 <!-- Div container for -->
 <!-- Info upcoming events -->
                         <div class="upcoming-events p-5 bg-danger" id="events-list"> <!-- Remove padding-->
-    <!-- Remove content. Just for building -->
-                            <p>Upcoming events will display here</p>
+                            
+                            <!-- Carousel -->
+                            <div id="event-carousel-indicators" class="carousel slide" data-ride="carousel">
+                                <ol class="carousel-indicators" id="carousel-li-div">
+                                  <li data-target="#event-carousel-indicators" data-slide-to="0" class="active"></li>
+                                  <!-- Need to create li with data-target="#event-carousel-indicators" data-slide-to="" -->
+                                  <!-- Example
+                                  <li data-target="#event-carousel-indicators" data-slide-to="1"></li>
+                                  <li data-target="#event-carousel-indicators" data-slide-to="2"></li>
+                                  <li data-target="#event-carousel-indicators" data-slide-to="2"></li> -->
+                                </ol>
+                                <div class="carousel-inner rounded-lg">
+                                  <div class="carousel-item active">
+                                    <!-- Need to create div containing the result plus  class="d-block w-100"-->
+                                    <!-- image is to show size -->
+                                    <img src="https://placehold.co/300x300" class="d-block w-100">
+                                  </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-target="#event-carousel-indicators" data-slide="prev">
+                                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                  <span class="sr-only">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-target="#event-carousel-indicators" data-slide="next">
+                                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                  <span class="sr-only">Next</span>
+                                </button>
+                              </div>
+                            <!-- End of Carousel -->
                         </div>
-
+<!-- End of Info upcoming events -->
                     </div>         
 
                         <div class="col-md-6 p-5 bg-dark justify-content-center" id="#">
@@ -63,7 +89,7 @@
                 <!-- Directions collapsable container -->
         <div class="container pt-4">
             <button class="btn btn-outline-light" data-toggle="collapse" data-target="#direction-collapse" aria-expanded="false" aria-controls="direction-collapse">Directions</button>
-                <div class="collapse pt-4" id="direction-collapse">
+                <div class="collapse pt-4 pb-5 mb-5" id="direction-collapse">
                     <div class="card card-body bg-dark">
                     <div class="text-white" id="routeInfo">
                         
