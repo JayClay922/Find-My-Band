@@ -48,7 +48,7 @@ section{
 
 .jumbotron{
     background-color: var(--container);
-    background-image: url(../images/rockOn_dark.jpg);
+    background-image: url(../images/concert-bg.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     height:90vh;
@@ -90,4 +90,9 @@ footer{
 .card{
     background-color: var(--darkblue);
     white-space: pre-wrap;
+    padding: 20%;
+}
+
+.btn-toolbar{
+    justify-content: space-between;
 }

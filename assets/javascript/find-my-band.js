@@ -1,5 +1,7 @@
 // Artists Events Tracker --------------------------------------------------------------------------------
-var validCountryVenuesData = [];
+var validCountryVenuesData = []; //Empty array to store relevant API data temporarily based on user input
+var savedEvents = JSON.parse(localStorage.getItem("savedEvents")) || []; //Loads previously saved event data from local storage
+
 $("#test-data-button").on("click", function(){
     console.log("Finding artist information");
     
@@ -70,7 +72,8 @@ $("#test-data-button").on("click", function(){
             var eventCarousel = $("<div>").attr("class", "carousel-item");
             var eventCarousel = $("<div>").attr("class", "carousel-item");
             var eventCard = $("<div>").attr("class", "card");
-            var eventCardContent =$("<div>").attr("class", "card-body");
+            var eventCardContentMain = $("<div>").attr("class", "card-body");
+            var eventCardContentButton = $("<div>").attr("class", "card-body btn-toolbar");
             var venueName = $("<h2>").text(validCountryVenuesData[i].venue);
             var eventDate = $("<h2>").text(validCountryVenuesData[i].startdate);
             var address = $("<p>").text("Located at: "+
@@ -80,14 +83,20 @@ $("#test-data-button").on("click", function(){
                 validCountryVenuesData[i].address.addressCountry);
             var viewDirections = $("<a>").attr({
                 class: "btn btn-primary",
-                "data-id": 1});
-            viewDirections.text("View Directions");
+                "data-id": "directions-"+ i});
+            viewDirections.text("Directions");
+            var saveEvent = $("<a>").attr({
+                class: "btn btn-primary",
+                "data-id": "saveEvent-"+ i});
+            saveEvent.text("Save");
 
-            eventCardContent.append(venueName);
-            eventCardContent.append(eventDate);
-            eventCardContent.append(address);
-            eventCardContent.append(viewDirections);
-            eventCard.append(eventCardContent);
+            eventCardContentMain.append(venueName);
+            eventCardContentMain.append(eventDate);
+            eventCardContentMain.append(address);
+            eventCardContentButton.append(viewDirections);
+            eventCardContentButton.append(saveEvent);
+            eventCard.append(eventCardContentMain);
+            eventCard.append(eventCardContentButton);
             eventCarousel.append(eventCard);
 
             $("#events-carousel").append(eventCarousel); //Cards are appended to carousel
