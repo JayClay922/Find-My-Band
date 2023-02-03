@@ -19,7 +19,8 @@
     <header>
         <!-- Remove bg-dark class if changing styles  -->
         <nav class="navbar navbar-dark  justify-content-center">
-            <span class="navbar-brand mb-1 h1">Find My Band</span>
+        <!-- href to index.html REMEMBER TO CHANGE WHEN DEPLOYED -->
+            <span class="navbar-brand mb-1 h1"><a href="index.html" style="color: white; text-decoration: none;">Find My Band</a></span>
         </nav>
     </header>  
 
@@ -29,16 +30,16 @@
         <div class="jumbotron">
             <div class="container">
                 <!-- gx is for the gutter -->
-                <div class="row gx-5 justify-content-center">
+                <div class="row justify-content-center">
     <!-- Div container for results-->
-                    <div class="col-md-6 p-5 bg-light" id="user-info">
+                    <div class="col-md-6 p-5 bg-dark" id="user-info">
     <!-- Remove content. Just for building -->
-
 <!-- Div container for -->
 <!-- Info upcoming events -->
-                    <div class="upcoming-events p-5 bg-danger" id="artist-bio"></div>
-                    <div class="upcoming-events p-5 bg-danger" id="events-list"></div>
+                    <div class="upcoming-events p-5" id="artist-bio"></div>
+                    <div class="upcoming-events column justify-space-around p-5" id="events-list"></div>
 
+                    </div>         
 
                         <div class="col-md-6 p-5 bg-dark justify-content-center" id="#">
 <!-- Div container for map -->
@@ -68,7 +69,7 @@
     
 
     <!-- link to find-my-band.js -->
-    <script src="key.js"></script>
+    <script src="assets/javascript/key.js"></script>
     <script src="assets/javascript/test-data.js"></script>
     <script src="assets/javascript/find-my-band.js"></script>
 </body>
