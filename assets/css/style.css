@@ -26,11 +26,17 @@ section{
 }
 
 #artist-bio{
-    background-color: var(--darkblue);
     color: var(--text);
     height: fit-content;
-    background-size: cover;
-    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.artistName{
+    font-size: 10ch;
+    color: rgba(255, 255, 255, 0.8);
+    padding-left: 2%;
 }
 
 .btn{
@@ -81,15 +87,11 @@ footer{
     position: sticky;
 }
 
-.artistBio{
-    width:200px;
-    height: 200px;
-    position: fixed;
+.artistImg{
+    width:150px;
+    height: 150px;
     background-repeat: no-repeat;
     border-radius: 50%;
-    z-index: 1;
-    left: 200px;
-    top: 200px;
 }
 
 #events-list{
@@ -126,12 +128,6 @@ footer{
 #saved-events{
     background-color: var(--darkblue);
     color: var(--text);
-}
-
-@media only screen and (max-width: 600px){
-    .artistBio{
-        display:none;
-    }
 }
 
 #routeInfo{

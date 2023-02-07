@@ -40,11 +40,15 @@ generateConcertData = function(){
             tempArtistInfoData["artist"] = response.data[0].name;
             tempArtistInfoData["image"] = response.data[0].image;
     
-            var artistBio = $("<div>").attr("class", "artistBio"); //Creates artist bio using artist name and image
-            artistBio.css("background-image", "url("+ response.data[0].image+ ")");
+            var artistInfo = $("<div>").attr("class", "artistBio");
+            var artistImg = $("<div>").attr("class", "artistImg"); //Creates artist bio using artist name and image
+            artistImg.css("background-image", "url("+ response.data[0].image+ ")");
+            var artistName= $("<h2>").attr("class", "artistName");
+            artistName.text(response.data[0].name);
 
-            console.log(tempArtistInfoData);
-            $("#artist-bio").append(artistBio);
+            $("#artist-bio").append(artistImg);
+            $("#artist-bio").append(artistName);
+            
     
             for (var i = 0; i < response.data.length; i++){
                 var tempDataObject = {}; //Temporary Object for venue data
