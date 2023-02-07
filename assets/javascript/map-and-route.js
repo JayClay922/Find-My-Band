@@ -173,13 +173,20 @@ function calcDistanceAndTime() {
       The journey will take ${hours} hours and ${minutes} minutes.
       </p>
       </div>
-      <button class="btn">View Route</button>
+      <button class="btn" onclick="displayMap()" >View Route</button>
       `
     );
     $('#route-modal').append(modalContent)
 }
 
 function closeModal() {
+  $('#route-modal').removeClass('distance')
+  $('#route-modal').addClass('hide')
+}
+
+function displayMap() {
+  $('#my-map').removeClass('hide')
+  $('#view-directions').removeClass('hide')
   $('#route-modal').removeClass('distance')
   $('#route-modal').addClass('hide')
 }
