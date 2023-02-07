@@ -118,6 +118,7 @@ generateConcertData = function(){
                 }
                 if (directionBtn === true) {
                     console.log("Directions button clicked");
+                    calcDistanceAndTime();
                 }
                 
             });

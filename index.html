@@ -20,8 +20,10 @@
     <!-- Header -->
     <header>
         <!-- Remove bg-dark class if changing styles  -->
-        <nav class="navbar navbar-dark justify-content-center">
+        <nav class="navbar navbar-dark justify-content-space-evenly">
+            <button class="btn btn-lg btn-outline-primary hide" id="back-button-main" type="button">Back</button>
             <span class="navbar-brand mb-1 h1">Find My Band</span>
+            <button class="btn btn-lg btn-outline-primary" id="saved-events-button" type="button">Saved Events</button>
         </nav>
     </header>
 
@@ -51,7 +53,6 @@
                                 <div class="">
                                     <!-- remove btn-outline primary for styling -->
                                     <button class="btn btn-lg btn-outline-primary" id="search-button" type="button">Search</button>
-                                    <button class="btn btn-lg btn-outline-primary" id="saved-events-button" type="button">Saved Events</button>
                                 </div>
                         </form>
                     </div>
@@ -59,7 +60,6 @@
             </div>
 
             <div id="results" class="hide">
-                <button class="btn btn-lg btn-outline-primary" id="back-button-main" type="button">Back</button>
                 <!-- Div container for results-->
                 <div id="artist-bio"></div>
                 <!-- Div container for upcoming events-->
@@ -99,7 +99,6 @@
                             
                             </div>
                             <section id="route-modal" class="hide"></section>
-                            <button class="btn btn-outline-light" onclick="calcDistanceAndTime()" >Test</button>
                             <!-- Directions collapsable container -->
                             <div>
                                 <button id="view-directions" class="btn btn-outline-light hide" data-toggle="collapse" data-target="#direction-collapse" aria-expanded="false" aria-controls="direction-collapse">View Direction Instructions</button>
