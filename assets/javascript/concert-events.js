@@ -82,7 +82,7 @@ generateConcertData = function(){
                 var description = $("<p>").text(validCountryVenuesData[i].description);
                 var viewDirections = $("<a>").attr({
                     class: "btn btn-primary",
-                    "data-id": i+ "-direction"});
+                    "data-id": i+ "-directions"});
                 viewDirections.text("Directions");
                 var saveEvent = $("<a>").attr({
                     class: "btn btn-primary",
@@ -117,7 +117,6 @@ generateConcertData = function(){
                     saveIndex = parseInt(clickBtn); //Takes Event ID from button
                     saveEventLocal(validCountryVenuesData[saveIndex]); //Runs save function
                 }
-
                 if (directionBtn === true) {
                     console.log("Directions button clicked");
                 }

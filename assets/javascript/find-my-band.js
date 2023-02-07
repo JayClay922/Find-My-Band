@@ -14,7 +14,7 @@ $("#search-button").on("click", function(event){
     generateConcertData();
 });
 
-$("#saved-events-button").on("click", function(event){
+$("#saved-events-button").on("click", function(){
     location.href = "saved-events.html"
 });
 
@@ -26,5 +26,9 @@ else{
     if($("body").is(".saved-event-page")){
         displaySavedEvents();
         console.log("Loaded saved events");
+
+        $("#back-button").on("click", function(){
+            location.href = "index.html"
+        });
     }
 }
