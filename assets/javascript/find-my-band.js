@@ -1,3 +1,4 @@
+var savedEvents = JSON.parse(localStorage.getItem("savedEvents")) || [];
 var userInputs = [];
 
 $("#search-button").on("click", function(event){
@@ -13,3 +14,17 @@ $("#search-button").on("click", function(event){
     generateConcertData();
 });
 
+$("#saved-events-button").on("click", function(event){
+    location.href = "saved-events.html"
+});
+
+
+if (savedEvents === undefined || savedEvents.length == 0){ //Checks if any previous search data exists in local storage
+    console.log("No saved events found.");
+}
+else{
+    if($("body").is(".saved-event-page")){
+        displaySavedEvents();
+        console.log("Loaded saved events");
+    }
+}

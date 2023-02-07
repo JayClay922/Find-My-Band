@@ -149,29 +149,29 @@ saveEventLocal = function(obj){
 }
 
 displaySavedEvents = function(){
+    $("#placeholder").attr("class", "hide");
 
-    for (var i = 0; i < validCountryVenuesData.length; i++){ //Loops through tempt data and creates a card for each venue
+    for (var i = 0; i < savedEvents.length; i++){ //Loops through tempt data and creates a card for each venue
 
-        var eventCarousel = $("<div>").attr("class", "carousel-item");
         var eventCard = $("<div>").attr("class", "card");
         var eventCardContentMain = $("<div>").attr("class", "card-body");
         var eventCardContentButton = $("<div>").attr("class", "card-body btn-toolbar");
-        var venueName = $("<h2>").text(validCountryVenuesData[i].venue);
-        var eventDate = $("<h2>").text(validCountryVenuesData[i].startdate);
+        var venueName = $("<h2>").text(savedEvents[i].venue);
+        var eventDate = $("<h2>").text(savedEvents[i].startdate);
         var address = $("<p>").text("Located at: "+
-            validCountryVenuesData[i].address.streetAddress+ " "+
-            validCountryVenuesData[i].address.addressLocality+ ", "+
-            validCountryVenuesData[i].address.postalCode+ ", "+
-            validCountryVenuesData[i].address.addressCountry);
-        var description = $("<p>").text(validCountryVenuesData[i].description);
+            savedEvents[i].address.streetAddress+ " "+
+            savedEvents[i].address.addressLocality+ ", "+
+            savedEvents[i].address.postalCode+ ", "+
+            savedEvents[i].address.addressCountry);
+        var description = $("<p>").text(savedEvents[i].description);
         var viewDirections = $("<a>").attr({
             class: "btn btn-primary",
             "data-id": i+ "-direction"});
         viewDirections.text("Directions");
         var saveEvent = $("<a>").attr({
             class: "btn btn-primary",
-            "data-id": i+ "-saveEvent"});
-        saveEvent.text("Save");
+            "data-id": i+ "-sdeleteEvent"});
+        saveEvent.text("Delete");
 
         eventCardContentMain.append(venueName);
         eventCardContentMain.append(eventDate);
@@ -181,6 +181,7 @@ displaySavedEvents = function(){
         eventCardContentButton.append(saveEvent);
         eventCard.append(eventCardContentMain);
         eventCard.append(eventCardContentButton);
-        eventCarousel.append(eventCard);
+
+        $("#saved-events").append(eventCard);
         }
 }
