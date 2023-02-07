@@ -90,14 +90,9 @@ footer{
     z-index: 1;
     left: 200px;
     top: 200px;
-    background-color: var(--darkblue);
-    color: var(--text);
-    padding:20px;
 }
 
 #events-list{
-    width:10%;
-    height:80%;
     color: var(--text);
 }
 
@@ -119,4 +114,15 @@ footer{
 
 .hide{
    display:none;
+}
+
+#saved-events{
+    background-color: var(--darkblue);
+    color: var(--text);
+}
+
+@media only screen and (max-width: 600px){
+    .artistBio{
+        display:none;
+    }
 }
