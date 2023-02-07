@@ -83,11 +83,11 @@ generateConcertData = function(){
                 var description = $("<p>").text(validCountryVenuesData[i].description);
                 var viewDirections = $("<a>").attr({
                     class: "btn btn-primary",
-                    "data-id": "directions-"+ i});
+                    "data-id": i+ "-direction"});
                 viewDirections.text("Directions");
                 var saveEvent = $("<a>").attr({
                     class: "btn btn-primary",
-                    "data-id": "saveEvent-"+ i});
+                    "data-id": i+ "-saveEvent"});
                 saveEvent.text("Save");
     
                 eventCardContentMain.append(venueName);
@@ -109,7 +109,19 @@ generateConcertData = function(){
     
             $("a").on("click", function(){
                 var clickBtn = $(this).data('id'); //Returns ID of event card clicked
-                console.log(clickBtn);
+
+                let saveBtn = clickBtn.includes('saveEvent'); //Checks if clicked button is for sve or directions
+                let directionBtn = clickBtn.includes('directions');
+
+                if (saveBtn === true) { 
+                    console.log("Save button clicked");
+                    saveIndex = parseInt(clickBtn); //Takes Event ID from button
+                    saveEventLocal(validCountryVenuesData[saveIndex]); //Runs save function
+                }
+
+                if (directionBtn === true) {
+                    console.log("Directions button clicked");
+                }
             });
         }
     // });
@@ -129,4 +141,10 @@ getRequiredVenues = function(arr, str){
     validCountryVenuesData = arr.filter(function(e){
         return e.address.addressCountry === str;
     })
+}
+
+saveEventLocal = function(obj){
+    savedEvents.push(obj); //Pushes object to local storage array
+    localStorage.setItem("savedEvents", JSON.stringify(savedEvents)); //Saves to local storage
+    console.log("Event saved");
 }
