@@ -126,3 +126,37 @@ footer{
         display:none;
     }
 }
+
+.distance {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.4rem;
+    width: 450px;
+    padding: 1.3rem;
+    min-height: 250px;
+    position: absolute;
+    top: 20%;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+  }
+  
+  .distance .flex {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .distance p {
+    font-size: 0.9rem;
+    margin: 0.4rem 0 0.2rem;
+  }
+  
+  .btn-close {
+    transform: translate(10px, -20px);
+    padding: 0.5rem 0.7rem;
+    background: #eee;
+    border-radius: 50%;
+    margin-top: 0.2rem;
+  }
+  

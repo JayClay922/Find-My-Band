@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 
 
+    <link href="https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.css" rel="stylesheet" />
+
     <!-- link to css -->
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Find My Band</title>
@@ -94,6 +96,8 @@
                                 </div>
                             
                             </div>
+                            <section id="route-modal" class="hide"></section>
+                            <button class="btn btn-outline-light" onclick="calcDistanceAndTime()" >Test</button>
                             <!-- Directions collapsable container -->
                             <div>
                                 <button class="btn btn-outline-light" data-toggle="collapse" data-target="#direction-collapse" aria-expanded="false" aria-controls="direction-collapse">View Direction Instructions</button>
@@ -149,7 +153,7 @@
     <!-- jQuery and Bootstrap js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
-    
+    <script src="https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.js"></script>
 
     <!-- link to find-my-band.js -->
     <script src="assets/javascript/key.js"></script>
@@ -157,5 +161,6 @@
     <script src="assets/javascript/concert-events.js"></script>
     <script src="assets/javascript/find-my-band.js"></script>
     <script src="./assets/javascript/address-search.js"></script>
+    <script src="./assets/javascript/map-and-route.js"></script>
 </body>
 </html>
