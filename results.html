@@ -76,7 +76,10 @@
                 </div>
             </div>
                 <!-- Directions collapsable container -->
-        <div class="container pt-4">
+                <section id="route-modal" class="hide"></section>
+                <button class="btn btn-outline-light" onclick="calcDistanceAndTime()" >Test</button>
+        
+                <div class="container pt-4">
             <button class="btn btn-outline-light" data-toggle="collapse" data-target="#direction-collapse" aria-expanded="false" aria-controls="direction-collapse">Directions</button>
                 <div class="collapse pt-4 pb-5 mb-5" id="direction-collapse">
                     <div class="card card-body bg-dark">
@@ -109,6 +112,6 @@
     <script src="assets/javascript/key.js"></script>
     <script src="assets/javascript/test-data.js"></script>
     <script src="assets/javascript/find-my-band.js"></script>
-    <!-- <script src="assets/javascript/map-and-route.js"></script> -->
+    <script src="assets/javascript/map-and-route.js"></script>
 </body>
 </html>

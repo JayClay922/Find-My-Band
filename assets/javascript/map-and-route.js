@@ -1,7 +1,7 @@
 let userLong = -0.3758;
 let userLat = 51.51237;
-let eventLong = -4.2055;
-let eventLat = 55.8497;
+let eventLong = 0.0032;
+let eventLat = 51.5030;
 
 var map = new maplibregl.Map({
   container: "my-map",
@@ -81,7 +81,6 @@ fetch(
       routeInfo(journeyObj);
       addLayerEvents();
       drawRoute();
-      calcDistanceAndTime();
     },
     (err) => console.log(err)
   );
@@ -147,11 +146,40 @@ function addLayerEvents() {
   });
 }
 
+
 function calcDistanceAndTime() {
     let distance = routeData.features[0].properties.distance;
-    let distanceInMiles = (distance/1609.344).toFixed(2);
-    console.log(distanceInMiles);
+    let displayDisatnce = (distance/1609.344).toFixed(2);
+    console.log(`The disatnce is ${displayDisatnce} miles`);
     let time = routeData.features[0].properties.time;
     let timeInHours = (time*0.00027778).toFixed(2);
-    console.log(timeInHours);
+    let hours = Math.floor(timeInHours);
+    let minutes = (timeInHours - hours) * 60;
+    console.log(`The journey takes ${hours} hours and ${minutes} minutes.`);
+    $("#route-modal").empty();
+    $('#route-modal').removeClass('hide')
+    $('#route-modal').addClass('distance')
+    let modalContent = $(
+      ` 
+      <div class="flex">
+      <button class="btn-close" onclick="closeModal()" >⨉</button>
+      </div>
+      <div>
+      <h3>Route to ....</h3>
+      <p>
+      The distance from your address to the event is ${displayDisatnce} miles.
+      </p>
+      <p>
+      The journey will take ${hours} hours and ${minutes} minutes.
+      </p>
+      </div>
+      <button class="btn">View Route</button>
+      `
+    );
+    $('#route-modal').append(modalContent)
+}
+
+function closeModal() {
+  $('#route-modal').removeClass('distance')
+  $('#route-modal').addClass('hide')
 }
