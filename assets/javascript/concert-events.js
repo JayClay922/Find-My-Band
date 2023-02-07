@@ -148,39 +148,45 @@ saveEventLocal = function(obj){
 }
 
 displaySavedEvents = function(){
-    $("#placeholder").attr("class", "hide");
+    if (savedEvents === undefined || savedEvents.length == 0){
+        $("#placeholder").removeClass("hide");
+        console.log("No saved events found");
+    }
+    else{
+        $("#placeholder").attr("class", "hide");
 
-    for (var i = 0; i < savedEvents.length; i++){ //Loops through tempt data and creates a card for each venue
-
-        var eventCard = $("<div>").attr("class", "card");
-        var eventCardContentMain = $("<div>").attr("class", "card-body");
-        var eventCardContentButton = $("<div>").attr("class", "card-body btn-toolbar");
-        var venueName = $("<h2>").text(savedEvents[i].venue);
-        var eventDate = $("<h2>").text(savedEvents[i].startdate);
-        var address = $("<p>").text("Located at: "+
-            savedEvents[i].address.streetAddress+ " "+
-            savedEvents[i].address.addressLocality+ ", "+
-            savedEvents[i].address.postalCode+ ", "+
-            savedEvents[i].address.addressCountry);
-        var description = $("<p>").text(savedEvents[i].description);
-        var viewDirections = $("<a>").attr({
-            class: "btn btn-primary",
-            "data-id": i+ "-direction"});
-        viewDirections.text("Directions");
-        var saveEvent = $("<a>").attr({
-            class: "btn btn-primary",
-            "data-id": i+ "-sdeleteEvent"});
-        saveEvent.text("Delete");
-
-        eventCardContentMain.append(venueName);
-        eventCardContentMain.append(eventDate);
-        eventCardContentMain.append(description);
-        eventCardContentMain.append(address);
-        eventCardContentButton.append(viewDirections);
-        eventCardContentButton.append(saveEvent);
-        eventCard.append(eventCardContentMain);
-        eventCard.append(eventCardContentButton);
-
-        $("#saved-events").append(eventCard);
+        for (var i = 0; i < savedEvents.length; i++){ //Loops through tempt data and creates a card for each venue
+    
+            var eventCard = $("<div>").attr("class", "card");
+            var eventCardContentMain = $("<div>").attr("class", "card-body");
+            var eventCardContentButton = $("<div>").attr("class", "card-body btn-toolbar");
+            var venueName = $("<h2>").text(savedEvents[i].venue);
+            var eventDate = $("<h2>").text(savedEvents[i].startdate);
+            var address = $("<p>").text("Located at: "+
+                savedEvents[i].address.streetAddress+ " "+
+                savedEvents[i].address.addressLocality+ ", "+
+                savedEvents[i].address.postalCode+ ", "+
+                savedEvents[i].address.addressCountry);
+            var description = $("<p>").text(savedEvents[i].description);
+            var viewDirections = $("<a>").attr({
+                class: "btn btn-primary",
+                "data-id": i+ "-direction"});
+            viewDirections.text("Directions");
+            var saveEvent = $("<a>").attr({
+                class: "btn btn-primary",
+                "data-id": i+ "-deleteEvent"});
+            saveEvent.text("Delete");
+    
+            eventCardContentMain.append(venueName);
+            eventCardContentMain.append(eventDate);
+            eventCardContentMain.append(description);
+            eventCardContentMain.append(address);
+            eventCardContentButton.append(viewDirections);
+            eventCardContentButton.append(saveEvent);
+            eventCard.append(eventCardContentMain);
+            eventCard.append(eventCardContentButton);
+    
+            $("#saved-events").append(eventCard);
         }
+    }
 }

@@ -19,16 +19,37 @@ $("#saved-events-button").on("click", function(){
 });
 
 
-if (savedEvents === undefined || savedEvents.length == 0){ //Checks if any previous search data exists in local storage
-    console.log("No saved events found.");
-}
-else{
-    if($("body").is(".saved-event-page")){
-        displaySavedEvents();
-        console.log("Loaded saved events");
+if($("body").is(".saved-event-page")){
+    displaySavedEvents();
+    console.log("Loaded saved events");
 
-        $("#back-button").on("click", function(){
-            location.href = "index.html"
-        });
-    }
+    $("#back-button").on("click", function(){
+        location.href = "index.html"
+    });
 }
+
+$("a").on("click", function(){
+    var clickBtn = $(this).data('id'); //Returns ID of event card clicked
+
+    var deleteBtn = clickBtn.includes('deleteEvent'); //Checks if clicked button is for sve or directions
+    var directionBtn = clickBtn.includes('directions');
+
+    if (deleteBtn === true) { 
+        console.log("Delete button clicked");
+        deleteIndex = parseInt(clickBtn); //Takes Event ID from button
+        savedEvents.splice(deleteIndex, 1);
+        localStorage.setItem("savedEvents", JSON.stringify(savedEvents));
+        $("#saved-events").empty();
+        displaySavedEvents();
+        return;
+    }
+
+    if (directionBtn === true) {
+        console.log("Directions button clicked");
+    }
+});
+
+$("#back-button-main").on("click", function(){
+    $("#results").attr("class", "hide");
+    $("#main-search-box").removeClass("hide");
+});
