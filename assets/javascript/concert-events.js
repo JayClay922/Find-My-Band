@@ -2,10 +2,6 @@
 var validCountryVenuesData = []; //Empty array to store relevant API data temporarily based on user input
 var savedEvents = JSON.parse(localStorage.getItem("savedEvents")) || []; //Loads previously saved event data from local storage
 
-if(window.location.href = "results.html"){
-    generateConcertData();
-}
-
 generateConcertData = function(){
     console.log("Finding artist information");
     
@@ -45,11 +41,11 @@ generateConcertData = function(){
             tempArtistInfoData["artist"] = response.data[0].name;
             tempArtistInfoData["image"] = response.data[0].image;
     
-            let artistBio = $("<div>").attr("class", "artistBio"); //Creates artist bio using artist name and image
+            var artistBio = $("<div>").attr("class", "artistBio"); //Creates artist bio using artist name and image
             artistBio.css("background-image", "url("+ response.data[0].image+ ")");
-            let artistName = $("<p>").text(tempArtistInfoData.artist+ "'s Upcoming Events");
-            artistBio.append(artistName);
-            $("#artist-bio").prepend(artistBio);
+
+            console.log(tempArtistInfoData);
+            $("#artist-bio").append(artistBio);
     
             for (var i = 0; i < response.data.length; i++){
                 var tempDataObject = {}; //Temporary Object for venue data
@@ -84,6 +80,7 @@ generateConcertData = function(){
                     validCountryVenuesData[i].address.addressLocality+ ", "+
                     validCountryVenuesData[i].address.postalCode+ ", "+
                     validCountryVenuesData[i].address.addressCountry);
+                var description = $("<p>").text(validCountryVenuesData[i].description);
                 var viewDirections = $("<a>").attr({
                     class: "btn btn-primary",
                     "data-id": "directions-"+ i});
@@ -95,6 +92,7 @@ generateConcertData = function(){
     
                 eventCardContentMain.append(venueName);
                 eventCardContentMain.append(eventDate);
+                eventCardContentMain.append(description);
                 eventCardContentMain.append(address);
                 eventCardContentButton.append(viewDirections);
                 eventCardContentButton.append(saveEvent);
@@ -105,6 +103,9 @@ generateConcertData = function(){
                 $("#events-carousel").append(eventCarousel); //Cards are appended to carousel
                 $('.carousel-item').first().addClass('active'); //Sets first card to be active to enable the carousel to work
             }
+
+            $("#main-search-box").addClass("hide");
+            $("#results").removeClass("hide");
     
             $("a").on("click", function(){
                 var clickBtn = $(this).data('id'); //Returns ID of event card clicked

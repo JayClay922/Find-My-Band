@@ -25,6 +25,14 @@ section{
     transform: translateY(20vh);
 }
 
+#artist-bio{
+    background-color: var(--darkblue);
+    color: var(--text);
+    height: fit-content;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
 .btn{
     background-color: var(--button);
     border-color: var(--button);
@@ -74,25 +82,41 @@ footer{
 }
 
 .artistBio{
-    display: flex;
-    flex-direction: row;
+    width:200px;
+    height: 200px;
+    position: fixed;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    z-index: 1;
+    left: 200px;
+    top: 200px;
     background-color: var(--darkblue);
     color: var(--text);
     padding:20px;
 }
 
 #events-list{
-    display: flex;
-    justify-content: space-between;
+    width:10%;
+    height:80%;
     color: var(--text);
 }
 
 .card{
     background-color: var(--darkblue);
+    min-width: 10%;
     white-space: pre-wrap;
-    padding: 20%;
+    padding: 10%;
 }
 
 .btn-toolbar{
     justify-content: space-between;
+}
+
+.map-display{
+    display: flex;
+    flex-direction: column;
+}
+
+.hide{
+   display:none;
 }

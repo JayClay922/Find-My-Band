@@ -10,7 +10,6 @@ $("#search-button").on("click", function(event){
 
     console.log(userInputs);
 
-    //Run functions here
-    window.location.href = "results.html";
+    generateConcertData();
 });
 

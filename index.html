@@ -53,8 +53,59 @@
                         </form>
                     </div>
                 </div>
+            </div>
 
-
+            <div id="results" class="hide">
+                <!-- Div container for results-->
+                <div id="artist-bio"></div>
+                <!-- Div container for upcoming events-->
+                <div class="container">
+                    <div class="row">
+                        <div class="upcoming-events col-lg-4" id="events-list">      
+                            <!-- Carousel -->
+                            <div id="event-carousel-indicators" class="carousel slide" data-ride="carousel">
+                                <ol class="carousel-indicators" id="carousel-li-div">
+                                    <li data-target="#event-carousel-indicators" data-slide-to="0" class="active"></li>
+                                    <!-- Need to create li with data-target="#event-carousel-indicators" data-slide-to="" -->
+                                    <!-- Example
+                                    <li data-target="#event-carousel-indicators" data-slide-to="1"></li>
+                                    <li data-target="#event-carousel-indicators" data-slide-to="2"></li>
+                                    <li data-target="#event-carousel-indicators" data-slide-to="2"></li> -->
+                                </ol>
+                                <div id="events-carousel" class="carousel-inner rounded-lg">
+                                    <button class="carousel-control-prev" type="button" data-target="#event-carousel-indicators" data-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="sr-only">Previous</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button" data-target="#event-carousel-indicators" data-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="sr-only">Next</span>
+                                    </button>
+                                </div>
+                                <!-- End of Carousel -->
+                            </div>
+                        </div>
+                        <div class="col-lg-8 map-display">
+                            <div id="#">
+                                <!-- Div container for map -->
+                                <div class="container justify-content-center" id="my-map">
+                                <!-- Remove img. Just for building -->
+                                    <img src="https://placehold.co/300x300" alt="">
+                                </div>
+                            
+                            </div>
+                            <!-- Directions collapsable container -->
+                            <div>
+                                <button class="btn btn-outline-light" data-toggle="collapse" data-target="#direction-collapse" aria-expanded="false" aria-controls="direction-collapse">View Direction Instructions</button>
+                                    <div class="collapse pt-4 pb-5 mb-5" id="direction-collapse">
+                                        <div class="card card-body bg-dark"></div>
+                                        <div class="text-white" id="routeInfo"></div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
     <!-- Button trigger for modal -->
     <!-- Remove btn-primary class if changing styles  -->
     <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
