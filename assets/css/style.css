@@ -56,7 +56,7 @@ section{
 
 .jumbotron{
     background-color: var(--container);
-    background-image: url(../images/concert-bg.jpg);
+    background-image: url(../images/concert-bg.png);
     background-size: cover;
     background-repeat: no-repeat;
     height:90vh;
@@ -130,6 +130,11 @@ footer{
     .artistBio{
         display:none;
     }
+}
+
+#routeInfo{
+    color: var(--text);
+    background-color: var(--darkblue);
 }
 
 .distance {
