@@ -68,7 +68,6 @@ generateConcertData = function(){
             for (var i = 0; i < validCountryVenuesData.length; i++){ //Loops through tempt data and creates a card for each venue
          
                 var eventCarousel = $("<div>").attr("class", "carousel-item");
-                var eventCarousel = $("<div>").attr("class", "carousel-item");
                 var eventCard = $("<div>").attr("class", "card");
                 var eventCardContentMain = $("<div>").attr("class", "card-body");
                 var eventCardContentButton = $("<div>").attr("class", "card-body btn-toolbar");
@@ -82,11 +81,11 @@ generateConcertData = function(){
                 var description = $("<p>").text(validCountryVenuesData[i].description);
                 var viewDirections = $("<a>").attr({
                     class: "btn btn-primary",
-                    "data-id": "directions-"+ i});
+                    "data-id": i+ "-directions"});
                 viewDirections.text("Directions");
                 var saveEvent = $("<a>").attr({
                     class: "btn btn-primary",
-                    "data-id": "saveEvent-"+ i});
+                    "data-id": i+ "-saveEvent"});
                 saveEvent.text("Save");
     
                 eventCardContentMain.append(venueName);
@@ -108,7 +107,18 @@ generateConcertData = function(){
     
             $("a").on("click", function(){
                 var clickBtn = $(this).data('id'); //Returns ID of event card clicked
-                console.log(clickBtn);
+
+                let saveBtn = clickBtn.includes('saveEvent'); //Checks if clicked button is for sve or directions
+                let directionBtn = clickBtn.includes('directions');
+
+                if (saveBtn === true) { 
+                    console.log("Save button clicked");
+                    saveIndex = parseInt(clickBtn); //Takes Event ID from button
+                    saveEventLocal(validCountryVenuesData[saveIndex]); //Runs save function
+                }
+                if (directionBtn === true) {
+                    console.log("Directions button clicked");
+                }
                 
             });
         }
@@ -129,4 +139,54 @@ getRequiredVenues = function(arr, str){
     validCountryVenuesData = arr.filter(function(e){
         return e.address.addressCountry === str;
     })
+}
+
+saveEventLocal = function(obj){
+    savedEvents.push(obj); //Pushes object to local storage array
+    localStorage.setItem("savedEvents", JSON.stringify(savedEvents)); //Saves to local storage
+    console.log("Event saved");
+}
+
+displaySavedEvents = function(){
+    if (savedEvents === undefined || savedEvents.length == 0){
+        $("#placeholder").removeClass("hide");
+        console.log("No saved events found");
+    }
+    else{
+        $("#placeholder").attr("class", "hide");
+
+        for (var i = 0; i < savedEvents.length; i++){ //Loops through tempt data and creates a card for each venue
+    
+            var eventCard = $("<div>").attr("class", "card");
+            var eventCardContentMain = $("<div>").attr("class", "card-body");
+            var eventCardContentButton = $("<div>").attr("class", "card-body btn-toolbar");
+            var venueName = $("<h2>").text(savedEvents[i].venue);
+            var eventDate = $("<h2>").text(savedEvents[i].startdate);
+            var address = $("<p>").text("Located at: "+
+                savedEvents[i].address.streetAddress+ " "+
+                savedEvents[i].address.addressLocality+ ", "+
+                savedEvents[i].address.postalCode+ ", "+
+                savedEvents[i].address.addressCountry);
+            var description = $("<p>").text(savedEvents[i].description);
+            var viewDirections = $("<a>").attr({
+                class: "btn btn-primary",
+                "data-id": i+ "-direction"});
+            viewDirections.text("Directions");
+            var saveEvent = $("<a>").attr({
+                class: "btn btn-primary",
+                "data-id": i+ "-deleteEvent"});
+            saveEvent.text("Delete");
+    
+            eventCardContentMain.append(venueName);
+            eventCardContentMain.append(eventDate);
+            eventCardContentMain.append(description);
+            eventCardContentMain.append(address);
+            eventCardContentButton.append(viewDirections);
+            eventCardContentButton.append(saveEvent);
+            eventCard.append(eventCardContentMain);
+            eventCard.append(eventCardContentButton);
+    
+            $("#saved-events").append(eventCard);
+        }
+    }
 }
