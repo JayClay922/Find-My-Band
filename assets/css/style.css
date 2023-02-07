@@ -100,7 +100,7 @@ footer{
     background-color: var(--darkblue);
     min-width: 10%;
     white-space: pre-wrap;
-    padding: 10%;
+    padding: 1%;
 }
 
 .btn-toolbar{
@@ -113,8 +113,10 @@ footer{
 }
 
 #saved-events{
-    background-color: var(--darkblue);
+    border-radius: 10px;
     color:var(--text);
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .hide{
