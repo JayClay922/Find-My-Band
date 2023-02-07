@@ -35,14 +35,9 @@
     <!-- Div container for results-->
                     <div class="col-md-6 p-5 bg-dark" id="user-info">
     <!-- Remove content. Just for building -->
-                        <div class="artist-bio">
-                            <p>Artist/Band Name</p>
-                            <p>Address</>
-                            <p>Country</p>
-                        </div>
 <!-- Div container for -->
 <!-- Info upcoming events -->
-                        <div class="upcoming-events p-5 bg-danger" id="events-list"> <!-- Remove padding-->
+                        <div class="upcoming-events p-5" id="events-list"> <!-- Remove padding-->
                             
                             <!-- Carousel -->
                             <div id="event-carousel-indicators" class="carousel slide" data-ride="carousel">
@@ -54,13 +49,7 @@
                                   <li data-target="#event-carousel-indicators" data-slide-to="2"></li>
                                   <li data-target="#event-carousel-indicators" data-slide-to="2"></li> -->
                                 </ol>
-                                <div class="carousel-inner rounded-lg">
-                                  <div class="carousel-item active">
-                                    <!-- Need to create div containing the result plus  class="d-block w-100"-->
-                                    <!-- image is to show size -->
-                                    <img src="https://placehold.co/300x300" class="d-block w-100">
-                                  </div>
-                                </div>
+                                <div id="events-carousel" class="carousel-inner rounded-lg">
                                 <button class="carousel-control-prev" type="button" data-target="#event-carousel-indicators" data-slide="prev">
                                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                   <span class="sr-only">Previous</span>
@@ -118,7 +107,8 @@
 
     <!-- link to find-my-band.js -->
     <script src="assets/javascript/key.js"></script>
+    <script src="assets/javascript/test-data.js"></script>
     <script src="assets/javascript/find-my-band.js"></script>
-    <script src="assets/javascript/map-and-route.js"></script>
+    <!-- <script src="assets/javascript/map-and-route.js"></script> -->
 </body>
 </html>

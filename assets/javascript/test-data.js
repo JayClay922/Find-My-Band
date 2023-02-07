@@ -1451,4 +1451,9 @@ const concertEventsTrackerTestResponse = {
         }
     ],
     "page": "1"
+};
+
+const artistNotFound = {
+    "data": [],
+    "page": "1"
 }

@@ -1,27 +1,15 @@
-// Artists Events Tracker --------------------------------------------------------------------------------
+var userInputs = [];
 
-$("#get-artist-info").on("click", function(){
-    console.log("Finding artist information");
+$("#search-button").on("click", function(event){
+    event.preventDefault();
+    var userArtistInput = $("#artist-name-search").val();
+    var userAddress = $("#address-search").val();
+    var userCountryInput = $("#country-search").val();
     
-    var userArtistInput = $("#artist-input").val(); //Takes user inputted artist/band
-    userArtistInput.split(' ').join('%20'); //Replaces spaces
+    userInputs = [userArtistInput, userAddress, userCountryInput]; //Use this array to get any of the user inputs where needed
 
-    // API Response code not being used for now.
+    console.log(userInputs);
 
-    // const settings = {
-    //     "async": true,
-    //     "crossDomain": true,
-    //     "url": "https://concerts-artists-events-tracker.p.rapidapi.com/artist?name="+userArtistInput+"&page=1",
-    //     "method": "GET",
-    //     "headers": {
-    //         "X-RapidAPI-Key": concertEventsTrackerKey,
-    //         "X-RapidAPI-Host": "concerts-artists-events-tracker.p.rapidapi.com"
-    //     }
-    // };
-    
-    // $.ajax(settings).done(function (response) {
-    //     console.log(response);
-    // });
-
-    console.log(concertEventsTrackerTestResponse); //Test data
+    generateConcertData();
 });
+
