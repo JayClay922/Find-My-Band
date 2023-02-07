@@ -1,155 +1,162 @@
 :root {
-  --background: #000000;
-  --darkblue: #14213d;
-  --button: #fca311;
-  --buttonHover: #db8e13;
-  --container: #e5e5e5;
-  --text: #ffffff;
+    --background: #000000;
+    --darkblue: #14213D;
+    --button: #FCA311;
+    --buttonHover: #db8e13;
+    --container: #E5E5E5;
+    --text: #FFFFFF;
 }
 
-body {
-  background-color: var(--background);
+body{
+    background-color: var(--background);
 }
 
-nav {
-  background-color: var(--darkblue);
+nav{
+    background-color: var(--darkblue);
 }
 
-section {
-  height: auto;
+section{
+    height:auto;
 }
 
-#main-search-box {
-  background-color: var(--darkblue);
-  color: var(--text);
-  transform: translateY(20vh);
+#main-search-box{
+    background-color: var(--darkblue);
+    color: var(--text);
+    transform: translateY(20vh);
 }
 
-#artist-bio {
-  background-color: var(--darkblue);
-  color: var(--text);
-  height: fit-content;
-  background-size: cover;
-  background-repeat: no-repeat;
+#artist-bio{
+    background-color: var(--darkblue);
+    color: var(--text);
+    height: fit-content;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
-.btn {
-  background-color: var(--button);
-  border-color: var(--button);
-  color: var(--text);
+.btn{
+    background-color: var(--button);
+    border-color: var(--button);
+    color: var(--text);
 }
 
-.btn:hover {
-  background-color: var(--buttonHover);
-  border-color: var(--buttonHover);
+.btn:hover{
+    background-color: var(--buttonHover);
+    border-color: var(--buttonHover);
 }
 
-.btn:focus {
-  background-color: var(--buttonHover);
-  border-color: var(--buttonHover);
+.btn:focus{
+    background-color: var(--buttonHover);
+    border-color: var(--buttonHover);
 }
 
-.btn:active {
-  background-color: var(--buttonHover) !important;
-  border-color: var(--buttonHover) !important;
+.btn:active{
+    background-color: var(--buttonHover) !important;
+    border-color: var(--buttonHover) !important;
 }
 
-.jumbotron {
-  background-color: var(--container);
-  background-image: url(../images/concert-bg.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: 90vh;
+.jumbotron{
+    background-color: var(--container);
+    background-image: url(../images/concert-bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height:90vh;
 }
 
-.modal-content {
-  background-color: var(--darkblue);
-  color: var(--text);
+.modal-content{
+    background-color: var(--darkblue);
+    color: var(--text);
 }
 
 .close {
-  color: var(--text);
-  opacity: 1;
+    color: var(--text); 
+    opacity: 1;
 }
 
 .close:hover {
-  color: var(--container);
-  opacity: 1;
+    color: var(--container); 
+    opacity: 1;
 }
 
-footer {
-  position: sticky;
+footer{
+    position: sticky;
 }
 
-.artistBio {
-  width: 200px;
-  height: 200px;
-  position: fixed;
-  background-repeat: no-repeat;
-  border-radius: 50%;
-  z-index: 1;
-  left: 200px;
-  top: 200px;
-  background-color: var(--darkblue);
-  color: var(--text);
-  padding: 20px;
+.artistBio{
+    width:200px;
+    height: 200px;
+    position: fixed;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    z-index: 1;
+    left: 200px;
+    top: 200px;
 }
 
-#events-list {
-  width: 10%;
-  height: 80%;
-  color: var(--text);
+#events-list{
+    color: var(--text);
 }
 
-.card {
-  background-color: var(--darkblue);
-  min-width: 10%;
-  white-space: pre-wrap;
-  padding: 10%;
+.card{
+    background-color: var(--darkblue);
+    min-width: 10%;
+    white-space: pre-wrap;
+    padding: 10%;
 }
 
-.btn-toolbar {
-  justify-content: space-between;
+.btn-toolbar{
+    justify-content: space-between;
 }
 
-.map-display {
-  display: flex;
-  flex-direction: column;
+.map-display{
+    display: flex;
+    flex-direction: column;
 }
 
-.hide {
-  display: none;
+.hide{
+   display:none;
+}
+
+#saved-events{
+    background-color: var(--darkblue);
+    color: var(--text);
+}
+
+@media only screen and (max-width: 600px){
+    .artistBio{
+        display:none;
+    }
 }
 
 .distance {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 0.4rem;
-  width: 450px;
-  padding: 1.3rem;
-  min-height: 250px;
-  position: absolute;
-  top: 20%;
-  background-color: white;
-  border: 1px solid #ddd;
-  border-radius: 15px;
-}
-
-.distance .flex {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.distance p {
-  font-size: 0.9rem;
-  margin: 0.4rem 0 0.2rem;
-}
-
-.btn-close {
-  transform: translate(10px, -20px);
-  padding: 0.5rem 0.7rem;
-  background: #eee;
-  border-radius: 50%;
-  margin-top: 0.2rem;
-}
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.4rem;
+    width: 450px;
+    padding: 1.3rem;
+    min-height: 250px;
+    position: absolute;
+    top: 20%;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+  }
+  
+  .distance .flex {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .distance p {
+    font-size: 0.9rem;
+    margin: 0.4rem 0 0.2rem;
+  }
+  
+  .btn-close {
+    transform: translate(10px, -20px);
+    padding: 0.5rem 0.7rem;
+    background: #eee;
+    border-radius: 50%;
+    margin-top: 0.2rem;
+  }
+  
