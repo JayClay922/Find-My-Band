@@ -1,32 +1,33 @@
 // Artists Events Tracker --------------------------------------------------------------------------------
 var validCountryVenuesData = []; //Empty array to store relevant API data temporarily based on user input
+var eventLatLong = [];
 
 generateConcertData = function(){
     console.log("Finding artist information");
     
-    // var userArtistInputNoSpace = userInputs[0].split(' ').join('%20'); //Replaces spaces with %20 (required for API call url)
-    // var userCountryInput = userInputs[2]; //Takes user inputted country
+    var userArtistInputNoSpace = userInputs[0].split(' ').join('%20'); //Replaces spaces with %20 (required for API call url)
+    var userCountryInput = userInputs[2]; //Takes user inputted country
 
     //---------TEST DATA--------------
     
-    var response = concertEventsTrackerTestResponse;
-    var userCountryInput = "New Zealand";
+    // var response = concertEventsTrackerTestResponse;
+    // var userCountryInput = "New Zealand";
 
     //---------TEST DATA--------------
 
-    // const settings = {
-    //     "async": true,
-    //     "crossDomain": true,
-    //     "url": "https://concerts-artists-events-tracker.p.rapidapi.com/artist?name="+userArtistInputNoSpace+"&page=1",
-    //     "method": "GET",
-    //     "headers": {
-    //         "X-RapidAPI-Key": concertEventsTrackerKey,
-    //         "X-RapidAPI-Host": "concerts-artists-events-tracker.p.rapidapi.com"
-    //     }
-    // };
+    const settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": "https://concerts-artists-events-tracker.p.rapidapi.com/artist?name="+userArtistInputNoSpace+"&page=1",
+        "method": "GET",
+        "headers": {
+            "X-RapidAPI-Key": concertEventsTrackerKey,
+            "X-RapidAPI-Host": "concerts-artists-events-tracker.p.rapidapi.com"
+        }
+    };
     
-    // $.ajax(settings).done(function (response) {
-    //     console.log(response);
+    $.ajax(settings).done(function (response) {
+        console.log(response);
         if(response.data === undefined || response.data.length === 0){ //Checks if artist exsits
             console.log("Artist not found");
     
@@ -122,12 +123,14 @@ generateConcertData = function(){
                 }
                 if (directionBtn === true) {
                     console.log("Directions button clicked");
+                    directionIndex = parseInt(clickBtn);
+                    eventLatLong = [validCountryVenuesData[directionIndex].location.geo.latitude, validCountryVenuesData[directionIndex].location.geo.longitude];
                     calcDistanceAndTime();
                 }
                 
             });
         }
-    // });
+    });
 }
 
 validateCountryInput = function(arr, str){
