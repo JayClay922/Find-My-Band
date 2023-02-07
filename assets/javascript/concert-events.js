@@ -69,7 +69,6 @@ generateConcertData = function(){
             for (var i = 0; i < validCountryVenuesData.length; i++){ //Loops through tempt data and creates a card for each venue
          
                 var eventCarousel = $("<div>").attr("class", "carousel-item");
-                var eventCarousel = $("<div>").attr("class", "carousel-item");
                 var eventCard = $("<div>").attr("class", "card");
                 var eventCardContentMain = $("<div>").attr("class", "card-body");
                 var eventCardContentButton = $("<div>").attr("class", "card-body btn-toolbar");
@@ -147,4 +146,41 @@ saveEventLocal = function(obj){
     savedEvents.push(obj); //Pushes object to local storage array
     localStorage.setItem("savedEvents", JSON.stringify(savedEvents)); //Saves to local storage
     console.log("Event saved");
+}
+
+displaySavedEvents = function(){
+
+    for (var i = 0; i < validCountryVenuesData.length; i++){ //Loops through tempt data and creates a card for each venue
+
+        var eventCarousel = $("<div>").attr("class", "carousel-item");
+        var eventCard = $("<div>").attr("class", "card");
+        var eventCardContentMain = $("<div>").attr("class", "card-body");
+        var eventCardContentButton = $("<div>").attr("class", "card-body btn-toolbar");
+        var venueName = $("<h2>").text(validCountryVenuesData[i].venue);
+        var eventDate = $("<h2>").text(validCountryVenuesData[i].startdate);
+        var address = $("<p>").text("Located at: "+
+            validCountryVenuesData[i].address.streetAddress+ " "+
+            validCountryVenuesData[i].address.addressLocality+ ", "+
+            validCountryVenuesData[i].address.postalCode+ ", "+
+            validCountryVenuesData[i].address.addressCountry);
+        var description = $("<p>").text(validCountryVenuesData[i].description);
+        var viewDirections = $("<a>").attr({
+            class: "btn btn-primary",
+            "data-id": i+ "-direction"});
+        viewDirections.text("Directions");
+        var saveEvent = $("<a>").attr({
+            class: "btn btn-primary",
+            "data-id": i+ "-saveEvent"});
+        saveEvent.text("Save");
+
+        eventCardContentMain.append(venueName);
+        eventCardContentMain.append(eventDate);
+        eventCardContentMain.append(description);
+        eventCardContentMain.append(address);
+        eventCardContentButton.append(viewDirections);
+        eventCardContentButton.append(saveEvent);
+        eventCard.append(eventCardContentMain);
+        eventCard.append(eventCardContentButton);
+        eventCarousel.append(eventCard);
+        }
 }
