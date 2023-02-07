@@ -1,6 +1,5 @@
 // Artists Events Tracker --------------------------------------------------------------------------------
 var validCountryVenuesData = []; //Empty array to store relevant API data temporarily based on user input
-var savedEvents = JSON.parse(localStorage.getItem("savedEvents")) || []; //Loads previously saved event data from local storage
 
 generateConcertData = function(){
     console.log("Finding artist information");
@@ -120,6 +119,7 @@ generateConcertData = function(){
                 if (directionBtn === true) {
                     console.log("Directions button clicked");
                 }
+                
             });
         }
     // });
