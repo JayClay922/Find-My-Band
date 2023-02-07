@@ -31,6 +31,7 @@ section{
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 1%;
 }
 
 .artistName{
@@ -144,9 +145,11 @@ footer{
     padding: 1.3rem;
     min-height: 250px;
     position: absolute;
+    z-index: 1;
     top: 20%;
-    background-color: white;
-    border: 1px solid #ddd;
+    background-color: var(--darkblue);
+    border: 1px solid var(--darkblue);
+    color: var(--text);
     border-radius: 15px;
   }
   
@@ -163,8 +166,7 @@ footer{
   .btn-close {
     transform: translate(10px, -20px);
     padding: 0.5rem 0.7rem;
-    background: #eee;
-    border-radius: 50%;
+    border: none;
     margin-top: 0.2rem;
   }
   
