@@ -15,23 +15,23 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Find My Band Search Results</title>
 </head>
-<body>
+<body class="saved-event-page">
 
     <!-- Header -->
     <header>
         <!-- Remove bg-dark class if changing styles  -->
         <nav class="navbar navbar-dark  justify-content-center">
         <!-- href to index.html REMEMBER TO CHANGE WHEN DEPLOYED -->
-            <span class="navbar-brand mb-1 h1"><a href="index.html" style="color: white; text-decoration: none;">Find My Band</a></span>
+            <span class="navbar-brand mb-1 h1"><a href="saved-events.html" style="color: white; text-decoration: none;">Find My Band</a></span>
         </nav>
     </header>  
 
     <!-- Main -->
     <section>
+        <button class="btn btn-lg btn-outline-primary" id="back-button" type="button">Back</button>
         <div class="jumbotron">
             <div id="saved-events" class="container shadow p-3 justify-content-center align-content-center">
-                <p class="placeholder">No saved events.</p>
-
+                <p id="placeholder">No saved events.</p>
             </div>
         </div>
 </section>
@@ -55,6 +55,7 @@
     <!-- link to find-my-band.js -->
     <script src="assets/javascript/key.js"></script>
     <script src="assets/javascript/test-data.js"></script>
+    <script src="assets/javascript/concert-events.js"></script>
     <script src="assets/javascript/find-my-band.js"></script>
     <!-- <script src="assets/javascript/map-and-route.js"></script> -->
 </body>

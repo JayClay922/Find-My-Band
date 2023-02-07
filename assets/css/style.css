@@ -112,6 +112,11 @@ footer{
     flex-direction: column;
 }
 
+#saved-events{
+    background-color: var(--darkblue);
+    color:var(--text);
+}
+
 .hide{
    display:none;
 }
