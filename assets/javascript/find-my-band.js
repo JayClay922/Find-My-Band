@@ -47,7 +47,7 @@ $("a").on("click", function(){
         localStorage.setItem("savedEvents", JSON.stringify(savedEvents));
         $("#saved-events").empty();
         displaySavedEvents();
-        return;
+        location.reload();
     }
 
     if (directionBtn === true) {
