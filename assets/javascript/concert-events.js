@@ -30,9 +30,8 @@ generateConcertData = function(){
     //     console.log(response);
     //     if(response.data === undefined || response.data.length === 0){ //Checks if artist exsits
     //         console.log("Artist not found");
-    
-    //         // --- Write code here to display artist not found modal ---
-    
+    //         $("#artist-not-found").modal("show");
+    //         return;
     //     }
     //     else{
             var tempArtistPerformanceData = []; //Temporary array for artist venues
@@ -41,7 +40,6 @@ generateConcertData = function(){
             tempArtistInfoData["artist"] = response.data[0].name;
             tempArtistInfoData["image"] = response.data[0].image;
     
-            var artistInfo = $("<div>").attr("class", "artistBio");
             var artistImg = $("<div>").attr("class", "artistImg"); //Creates artist bio using artist name and image
             artistImg.css("background-image", "url("+ response.data[0].image+ ")");
             var artistName= $("<h2>").attr("class", "artistName");
@@ -142,7 +140,9 @@ validateCountryInput = function(arr, str){
         console.log("Reponse contains inputted country at index "+ i);
     }
     else{
-        // --- Write code here to display artist not performing in country found modal ---
+        console.log("No events found for specified country");
+        $("#missing-event-in-country-modal").modal("show");
+        return;
     }
 }
 
