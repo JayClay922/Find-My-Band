@@ -11,7 +11,7 @@ generateConcertData = function(){
     //---------TEST DATA--------------
     
     var response = concertEventsTrackerTestResponse;
-    var userCountryInput = "US";
+    var userCountryInput = "New Zealand";
 
     //---------TEST DATA--------------
 
@@ -124,8 +124,10 @@ generateConcertData = function(){
                 if (directionBtn === true) {
                     console.log("Directions button clicked");
                     directionIndex = parseInt(clickBtn);
-                    eventLatLong = [validCountryVenuesData[directionIndex].location.geo.latitude, validCountryVenuesData[directionIndex].location.geo.longitude];
-                    calcDistanceAndTime();
+                    eventLatLong = [validCountryVenuesData[directionIndex].latitude, validCountryVenuesData[directionIndex].longitude];
+                    
+                    generateMap();
+                    // calcDistanceAndTime();
                 }
                 
             });

@@ -12,6 +12,7 @@ addressSearch = function(address) {
         var userLat = response.features[0].properties.lat
 
         userLatLong = [userLong, userLat];
+        console.log(userLatLong);
        }
     });
 };
