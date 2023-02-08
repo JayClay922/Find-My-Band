@@ -127,7 +127,9 @@ generateConcertData = function(){
                     eventLatLong = [validCountryVenuesData[directionIndex].latitude, validCountryVenuesData[directionIndex].longitude];
                     
                     generateMap();
-                    // calcDistanceAndTime();
+                    calcDistanceAndTime();
+                    closeModal();
+                    displayMap();
                 }
                 
             });
