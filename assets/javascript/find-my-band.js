@@ -28,14 +28,25 @@ $("#search-button").on("click", function(event){
         return;
     }
     else{
+        
         var userCountryCode = countryListAllIsoData[countryIndex].code.toLowerCase();
         userInputs = [userArtistInput, userAddress, userCountryInput, userCountryCode];
-
         console.log(userInputs);
-        generateConcertData();
-        addressSearch(userInputs[1], userInputs[3]);
-    }
 
+        if (userCountryInput == "United Kingdom of Great Britain and Northern Ireland (the)") {
+            var regExp = /^([Gg][Ii][Rr] 0[Aa]{2})|((([A-Za-z][0-9]{1,2})|(([A-Za-z][A-Ha-hJ-Yj-y][0-9]{1,2})|(([A-Za-z][0-9][A-Za-z])|([A-Za-z][A-Ha-hJ-Yj-y][0-9]?[A-Za-z])))) {0,1}[0-9][A-Za-z]{2})$/;
+            if( regExp.test( userAddress ) ){
+                generateConcertData();
+                addressSearch(userInputs[1], userInputs[3]);
+            } else {
+                alert("Postcode is invalid.");
+            }
+            } else {
+                generateConcertData();
+                addressSearch(userInputs[1], userInputs[3]);
+            }
+
+    }
 });
 
 if (savedEvents === undefined || savedEvents.length == 0){ //Checks if any saved event data exists in local storage
