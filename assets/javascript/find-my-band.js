@@ -34,13 +34,22 @@ $("#search-button").on("click", function(event){
         console.log(userInputs);
 
         if (userCountryInput == "United Kingdom of Great Britain and Northern Ireland (the)") {
-            var regExp = /^([Gg][Ii][Rr] 0[Aa]{2})|((([A-Za-z][0-9]{1,2})|(([A-Za-z][A-Ha-hJ-Yj-y][0-9]{1,2})|(([A-Za-z][0-9][A-Za-z])|([A-Za-z][A-Ha-hJ-Yj-y][0-9]?[A-Za-z])))) {0,1}[0-9][A-Za-z]{2})$/;
-            if( regExp.test( userAddress ) ){
-                generateConcertData();
-                addressSearch(userInputs[1], userInputs[3]);
+            var UKregExp = /^([Gg][Ii][Rr] 0[Aa]{2})|((([A-Za-z][0-9]{1,2})|(([A-Za-z][A-Ha-hJ-Yj-y][0-9]{1,2})|(([A-Za-z][0-9][A-Za-z])|([A-Za-z][A-Ha-hJ-Yj-y][0-9]?[A-Za-z])))) {0,1}[0-9][A-Za-z]{2})$/;
+                if( UKregExp.test( userAddress ) ){
+                    generateConcertData();
+                    addressSearch(userInputs[1], userInputs[3]);
             } else {
                 alert("Postcode is invalid.");
             }
+            } else if (userCountryInput == "United States of America (the)"){
+                var USregExp = /^(\d{5}-\d{4}|\d{5}|[A-Z]\d[A-Z] \d[A-Z]\d)$/;
+                if ( USregExp.test( userAddress ) ) {
+                    generateConcertData();
+                    addressSearch(userInputs[1], userInputs[3]);
+                } else {
+                    alert("Zipcode is invalid.");
+                }
+        
             } else {
                 generateConcertData();
                 addressSearch(userInputs[1], userInputs[3]);
