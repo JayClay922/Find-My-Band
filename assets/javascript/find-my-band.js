@@ -96,7 +96,7 @@ $("#search-button").on("click", function(event){
                     generateConcertData();
                     addressSearch(userInputs[1], userInputs[3]);
                 } else {
-                    alert("Postcode is invalid.");
+                    $("#missing-postcode-modal").modal("show");
                 }
             } else {
                 generateConcertData();
