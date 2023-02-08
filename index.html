@@ -28,6 +28,7 @@
     </header>
 
     <!-- Main -->
+    <!-- Error Modals -->
     <div class="modal fade" id="missing-artist-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -75,6 +76,42 @@
             </div>
             <div class="modal-body">
             Please select a country.
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="missing-event-in-country-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2 class="modal-title" id="exampleModalLabel">Error</h2>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+            No events found in specified country.
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="artist-not-found" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2 class="modal-title" id="exampleModalLabel">Error</h2>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+            Artist not found.
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>
@@ -172,35 +209,13 @@
     <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
     Search ...
     </button> -->
-  
-    <!-- Modal Start  ---------------------- -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Search Find My Band?</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            </div>
-            <div class="modal-body">
-          Content goes here !
-            </div>
-            <div class="modal-footer">
-                <!-- Remove btn-primary class if changing styles  -->
-            <button type="button" class="btn btn-primary">Search</button>
-            </div>
-        </div>
-        </div>
-    </div>
-    <!-- Modal end ---------------------- -->
 
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="fixed-bottom">
+    <footer>
         <div class="container">
             <p>&copy; Find My Band - 2023</p>
         </div>
