@@ -13,11 +13,8 @@ $("#search-button").on("click", function(event){
     console.log(userInputs);
 
     generateConcertData();
+    addressSearch(userInputs[1]);
 });
-
-if (savedEvents === undefined || savedEvents.length == 0){ //Checks if any saved event data exists in local storage
-    console.log("No saved events found.");
-}
 
 if (savedEvents === undefined || savedEvents.length == 0){ //Checks if any saved event data exists in local storage
     console.log("No saved events found.");

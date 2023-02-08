@@ -1,7 +1,7 @@
-let userLong = -0.3758;
-let userLat = 51.51237;
-let eventLong = 0.0032;
-let eventLat = 51.5030;
+var userLong = userLatLong[0];
+var userLat = userLatLong[1];
+var eventLong = eventLatLong[1];
+var eventLat = eventLatLong[0];
 
 function generateMap() {
 var map = new maplibregl.Map({
