@@ -12,28 +12,40 @@ $("#search-button").on("click", function(event){
 
     var countryIndex = countryListAllIsoData.findIndex(e => e.name == userCountryInput);
 
-    var userCountryCode = countryListAllIsoData[countryIndex].code.toLowerCase();
-    userInputs = [userArtistInput, userAddress, userCountryInput, userCountryCode]; //Use this array to get any of the user inputs where needed
-
-    console.log(userInputs);
-
-    for(var j = 0; j < userInputs.length; j++){
-        if(userInputs[j] === "" || userInputs[j] === undefined){ //Validation for empty fields
-            console.log("Missing input");
-        }
+    if(userArtistInput === "" || userArtistInput === undefined){ //Validation for empty fields
+        console.log("Missing Artist Input");
+        $("#missing-artist-modal").modal("show");
+        return;
     }
-
-    if (userCountryInput == "United Kingdom of Great Britain and Northern Ireland (the)") {
-    var regExp = /^([Gg][Ii][Rr] 0[Aa]{2})|((([A-Za-z][0-9]{1,2})|(([A-Za-z][A-Ha-hJ-Yj-y][0-9]{1,2})|(([A-Za-z][0-9][A-Za-z])|([A-Za-z][A-Ha-hJ-Yj-y][0-9]?[A-Za-z])))) {0,1}[0-9][A-Za-z]{2})$/;
-    if( regExp.test( userAddress ) ){
-        generateConcertData();
-        addressSearch(userInputs[1], userInputs[3]);
-    } else {
-        alert("Postcode is invalid.");
+    else if(userAddress === "" || userAddress === undefined){
+        console.log("Missing Postcode");
+        $("#missing-postcode-modal").modal("show");
+        return;
     }
-    } else {
-        generateConcertData();
-        addressSearch(userInputs[1], userInputs[3]);
+    else if(userCountryInput == "Please select country"){
+        console.log("No country");
+        $("#missing-country-modal").modal("show");
+        return;
+    }
+    else{
+        
+        var userCountryCode = countryListAllIsoData[countryIndex].code.toLowerCase();
+        userInputs = [userArtistInput, userAddress, userCountryInput, userCountryCode];
+        console.log(userInputs);
+
+        if (userCountryInput == "United Kingdom of Great Britain and Northern Ireland (the)") {
+            var regExp = /^([Gg][Ii][Rr] 0[Aa]{2})|((([A-Za-z][0-9]{1,2})|(([A-Za-z][A-Ha-hJ-Yj-y][0-9]{1,2})|(([A-Za-z][0-9][A-Za-z])|([A-Za-z][A-Ha-hJ-Yj-y][0-9]?[A-Za-z])))) {0,1}[0-9][A-Za-z]{2})$/;
+            if( regExp.test( userAddress ) ){
+                generateConcertData();
+                addressSearch(userInputs[1], userInputs[3]);
+            } else {
+                alert("Postcode is invalid.");
+            }
+            } else {
+                generateConcertData();
+                addressSearch(userInputs[1], userInputs[3]);
+            }
+
     }
 });
 
