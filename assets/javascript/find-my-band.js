@@ -66,6 +66,14 @@ $("#search-button").on("click", function(event){
                 } else {
                     alert("Postcode is invalid.");
                 }
+            } else if(userCountryInput == "Germany" || userCountryInput == "Italy" ){
+                var GERORITAregExp = /^\d{5}$/;
+                if ( GERORITAregExp.test( userAddress ) ) {
+                    generateConcertData();
+                    addressSearch(userInputs[1], userInputs[3]);
+                } else {
+                    alert("Postcode is invalid.");
+                }
             } else {
                 generateConcertData();
                 addressSearch(userInputs[1], userInputs[3]); 
