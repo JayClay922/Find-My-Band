@@ -174,4 +174,10 @@ footer{
     max-height: 280px;
     overflow-y: auto;
   }
+
+  #routeInfo{
+    max-height: 280px;
+    overflow-y: auto;
+  }
+
   

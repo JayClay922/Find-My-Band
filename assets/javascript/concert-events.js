@@ -41,7 +41,6 @@ generateConcertData = function(){
             tempArtistInfoData["artist"] = response.data[0].name;
             tempArtistInfoData["image"] = response.data[0].image;
     
-            var artistInfo = $("<div>").attr("class", "artistBio");
             var artistImg = $("<div>").attr("class", "artistImg"); //Creates artist bio using artist name and image
             artistImg.css("background-image", "url("+ response.data[0].image+ ")");
             var artistName= $("<h2>").attr("class", "artistName");
