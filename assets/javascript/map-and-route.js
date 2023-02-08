@@ -176,7 +176,7 @@ function calcDistanceAndTime() {
     let time = routeData.features[0].properties.time;
     let timeInHours = (time*0.00027778).toFixed(2);
     let hours = Math.floor(timeInHours);
-    let minutes = ((timeInHours - hours) * 60).toFixed(2);
+    let minutes = Math.round((timeInHours - hours) * 60);
     console.log(`The journey takes ${hours} hours and ${minutes} minutes.`);
     $("#route-modal").empty();
     $('#route-modal').removeClass('hide')
