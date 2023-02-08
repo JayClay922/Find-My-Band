@@ -127,7 +127,7 @@ $("a").on("click", function(){
     var clickBtn = $(this).data('id'); //Returns ID of event card clicked
 
     var deleteBtn = clickBtn.includes('deleteEvent'); //Checks if clicked button is for sve or directions
-    var directionBtn = clickBtn.includes('directions');
+    var directionBtn = clickBtn.includes('direction');
 
     if (deleteBtn === true) { 
         console.log("Delete button clicked");
@@ -141,6 +141,13 @@ $("a").on("click", function(){
 
     if (directionBtn === true) {
         console.log("Directions button clicked");
+        directionIndex = parseInt(clickBtn);
+        eventLatLong = [savedEvents[directionIndex].latitude, savedEvents[directionIndex].longitude];
+        userLatLong = [savedEvents[directionIndex].userLat, savedEvents[directionIndex].userLong];
+        $('#my-map').addClass('hide')
+        $('#view-directions').addClass('hide')
+        generateMap();
+        calcDistanceAndTime();
     }
 });
 

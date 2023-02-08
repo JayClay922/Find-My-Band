@@ -5,35 +5,35 @@ var eventLatLong = [];
 generateConcertData = function(){
     console.log("Finding artist information");
     
-    var userArtistInputNoSpace = userInputs[0].split(' ').join('%20'); //Replaces spaces with %20 (required for API call url)
-    var userCountryInput = userInputs[2]; //Takes user inputted country
+    // var userArtistInputNoSpace = userInputs[0].split(' ').join('%20'); //Replaces spaces with %20 (required for API call url)
+    // var userCountryInput = userInputs[2]; //Takes user inputted country
 
     //---------TEST DATA--------------
     
-    // var response = concertEventsTrackerTestResponse;
-    // var userCountryInput = "New Zealand";
+    var response = concertEventsTrackerTestResponse;
+    var userCountryInput = "New Zealand";
 
     //---------TEST DATA--------------
 
-    const settings = {
-        "async": true,
-        "crossDomain": true,
-        "url": "https://concerts-artists-events-tracker.p.rapidapi.com/artist?name="+userArtistInputNoSpace+"&page=1",
-        "method": "GET",
-        "headers": {
-            "X-RapidAPI-Key": concertEventsTrackerKey,
-            "X-RapidAPI-Host": "concerts-artists-events-tracker.p.rapidapi.com"
-        }
-    };
+    // const settings = {
+    //     "async": true,
+    //     "crossDomain": true,
+    //     "url": "https://concerts-artists-events-tracker.p.rapidapi.com/artist?name="+userArtistInputNoSpace+"&page=1",
+    //     "method": "GET",
+    //     "headers": {
+    //         "X-RapidAPI-Key": concertEventsTrackerKey,
+    //         "X-RapidAPI-Host": "concerts-artists-events-tracker.p.rapidapi.com"
+    //     }
+    // };
     
-    $.ajax(settings).done(function (response) {
-        console.log(response);
-        if(response.data === undefined || response.data.length === 0){ //Checks if artist exsits
-            console.log("Artist not found");
-            $("#artist-not-found").modal("show");
-            return;
-        }
-        else{
+    // $.ajax(settings).done(function (response) {
+    //     console.log(response);
+    //     if(response.data === undefined || response.data.length === 0){ //Checks if artist exsits
+    //         console.log("Artist not found");
+    //         $("#artist-not-found").modal("show");
+    //         return;
+    //     }
+    //     else{
             var tempArtistPerformanceData = []; //Temporary array for artist venues
             var tempArtistInfoData = {}; //Temporary Object for artist data
     
@@ -131,8 +131,8 @@ generateConcertData = function(){
                 
             });
         }
-    });
-}
+//     });
+// }
 
 validateCountryInput = function(arr, str){
     const i = arr.findIndex(e => e.address.addressCountry === str);
@@ -153,6 +153,10 @@ getRequiredVenues = function(arr, str){
 }
 
 saveEventLocal = function(obj){
+
+    obj["userLat"] = userLatLong[1];
+    obj["userLong"] = userLatLong[0];
+    
     savedEvents.push(obj); //Pushes object to local storage array
     localStorage.setItem("savedEvents", JSON.stringify(savedEvents)); //Saves to local storage
     console.log("Event saved");
@@ -172,7 +176,7 @@ displaySavedEvents = function(){
             var eventCardContentMain = $("<div>").attr("class", "card-body");
             var eventCardContentButton = $("<div>").attr("class", "card-body btn-toolbar");
             var venueName = $("<h2>").text(savedEvents[i].venue);
-            var eventDate = $("<h2>").text(savedEvents[i].startdate);
+            var eventDate = $("<h2>").text(savedEvents[i].startdate.replace(/\T/g, ' at '));
             var address = $("<p>").text("Located at: "+
                 savedEvents[i].address.streetAddress+ " "+
                 savedEvents[i].address.addressLocality+ ", "+
