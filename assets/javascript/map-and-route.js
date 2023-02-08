@@ -1,9 +1,26 @@
-var userLong = userLatLong[0];
-var userLat = userLatLong[1];
-var eventLong = eventLatLong[1];
-var eventLat = eventLatLong[0];
+var userLong = 0;
+var userLat = 0;
+var eventLong = 0;
+var eventLat = 0;
+
+function userCoord(){
+  // userLong = userLatLong[0];
+  // userLat = userLatLong[1];
+  userLong = 174.6
+  userLat = -41.43
+}
+
+function eventCoord(){
+  eventLong = eventLatLong[1];
+  eventLat = eventLatLong[0];
+}
 
 function generateMap() {
+userCoord();
+eventCoord();
+console.log(userLong, userLat);
+console.log(eventLong, eventLat);
+
 var map = new maplibregl.Map({
   container: "my-map",
   style: "https://api.maptiler.com/maps/streets/style.json?key=" + mapKey,
@@ -148,48 +165,48 @@ function addLayerEvents() {
 }
 
 
-function calcDistanceAndTime() {
-    let distance = routeData.features[0].properties.distance;
-    let displayDisatnce = (distance/1609.344).toFixed(2);
-    console.log(`The disatnce is ${displayDisatnce} miles`);
-    let time = routeData.features[0].properties.time;
-    let timeInHours = (time*0.00027778).toFixed(2);
-    let hours = Math.floor(timeInHours);
-    let minutes = (timeInHours - hours) * 60;
-    console.log(`The journey takes ${hours} hours and ${minutes} minutes.`);
-    $("#route-modal").empty();
-    $('#route-modal').removeClass('hide')
-    $('#route-modal').addClass('distance')
-    let modalContent = $(
-      ` 
-      <div class="flex">
-      <button class="btn-close" onclick="closeModal()" >⨉</button>
-      </div>
-      <div>
-      <h3>Route to ....</h3>
-      <p>
-      The distance from your address to the event is ${displayDisatnce} miles.
-      </p>
-      <p>
-      The journey will take ${hours} hours and ${minutes} minutes.
-      </p>
-      </div>
-      <button class="btn" onclick="displayMap()" >View Route</button>
-      `
-    );
-    $('#route-modal').append(modalContent)
-}
+// function calcDistanceAndTime() {
+//     let distance = routeData.features[0].properties.distance;
+//     let displayDisatnce = (distance/1609.344).toFixed(2);
+//     console.log(`The disatnce is ${displayDisatnce} miles`);
+//     let time = routeData.features[0].properties.time;
+//     let timeInHours = (time*0.00027778).toFixed(2);
+//     let hours = Math.floor(timeInHours);
+//     let minutes = (timeInHours - hours) * 60;
+//     console.log(`The journey takes ${hours} hours and ${minutes} minutes.`);
+//     $("#route-modal").empty();
+//     $('#route-modal').removeClass('hide')
+//     $('#route-modal').addClass('distance')
+//     let modalContent = $(
+//       ` 
+//       <div class="flex">
+//       <button class="btn-close" onclick="closeModal()" >⨉</button>
+//       </div>
+//       <div>
+//       <h3>Route to ....</h3>
+//       <p>
+//       The distance from your address to the event is ${displayDisatnce} miles.
+//       </p>
+//       <p>
+//       The journey will take ${hours} hours and ${minutes} minutes.
+//       </p>
+//       </div>
+//       <button class="btn" onclick="displayMap()" >View Route</button>
+//       `
+//     );
+//     $('#route-modal').append(modalContent)
+// }
 
-function closeModal() {
-  $('#route-modal').removeClass('distance')
-  $('#route-modal').addClass('hide')
-}
+// function closeModal() {
+//   $('#route-modal').removeClass('distance')
+//   $('#route-modal').addClass('hide')
+// // }
 
-function displayMap() {
-  $('#my-map').removeClass('hide')
-  $('#view-directions').removeClass('hide')
-  $('#route-modal').removeClass('distance')
-  $('#route-modal').addClass('hide')
-}
+// function displayMap() {
+//   $('#my-map').removeClass('hide')
+//   $('#view-directions').removeClass('hide')
+//   $('#route-modal').removeClass('distance')
+//   $('#route-modal').addClass('hide')
+// }
 
 }
