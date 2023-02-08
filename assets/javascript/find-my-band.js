@@ -12,19 +12,30 @@ $("#search-button").on("click", function(event){
 
     var countryIndex = countryListAllIsoData.findIndex(e => e.name == userCountryInput);
 
-    var userCountryCode = countryListAllIsoData[countryIndex].code.toLowerCase();
-    userInputs = [userArtistInput, userAddress, userCountryInput, userCountryCode]; //Use this array to get any of the user inputs where needed
+    if(userArtistInput === "" || userArtistInput === undefined){ //Validation for empty fields
+        console.log("Missing Artist Input");
+        $("#missing-artist-modal").modal("show");
+        return;
+    }
+    else if(userAddress === "" || userAddress === undefined){
+        console.log("Missing Postcode");
+        $("#missing-postcode-modal").modal("show");
+        return;
+    }
+    else if(userCountryInput == "Please select country"){
+        console.log("No country");
+        $("#missing-country-modal").modal("show");
+        return;
+    }
+    else{
+        var userCountryCode = countryListAllIsoData[countryIndex].code.toLowerCase();
+        userInputs = [userArtistInput, userAddress, userCountryInput, userCountryCode];
 
-    console.log(userInputs);
-
-    for(var j = 0; j < userInputs.length; j++){
-        if(userInputs[j] === "" || userInputs[j] === undefined){ //Validation for empty fields
-            console.log("Missing input");
-        }
+        console.log(userInputs);
+        generateConcertData();
+        addressSearch(userInputs[1], userInputs[3]);
     }
 
-    generateConcertData();
-    addressSearch(userInputs[1], userInputs[3]);
 });
 
 if (savedEvents === undefined || savedEvents.length == 0){ //Checks if any saved event data exists in local storage
