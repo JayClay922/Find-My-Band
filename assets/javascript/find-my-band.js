@@ -34,7 +34,7 @@ $("#search-button").on("click", function(event){
         userInputs = [userArtistInput, userAddress, userCountryInput, userCountryCode];
         console.log(userInputs);
 
-        if (userCountryInput == "United Kingdom of Great Britain and Northern Ireland (the)") {
+        if (userCountryInput == "UK") {
             var UKregExp = /^([Gg][Ii][Rr] 0[Aa]{2})|((([A-Za-z][0-9]{1,2})|(([A-Za-z][A-Ha-hJ-Yj-y][0-9]{1,2})|(([A-Za-z][0-9][A-Za-z])|([A-Za-z][A-Ha-hJ-Yj-y][0-9]?[A-Za-z])))) {0,1}[0-9][A-Za-z]{2})$/;
                 if( UKregExp.test( userAddress ) ){
                     generateConcertData();
@@ -42,7 +42,7 @@ $("#search-button").on("click", function(event){
             } else {
                 $("#missing-postcode-modal").modal("show");
             }
-            } else if (userCountryInput == "United States of America (the)"){
+            } else if (userCountryInput == "US"){
                 var USregExp = /^(\d{5}-\d{4}|\d{5}|[A-Z]\d[A-Z] \d[A-Z]\d)$/;
                 if ( USregExp.test( userAddress ) ) {
                     generateConcertData();
