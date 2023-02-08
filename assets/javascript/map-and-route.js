@@ -4,10 +4,8 @@ var eventLong = 0;
 var eventLat = 0;
 
 function userCoord(){
-  // userLong = userLatLong[0];
-  // userLat = userLatLong[1];
-  userLong = 174.8076
-  userLat = -41.3230
+  userLong = userLatLong[0];
+  userLat = userLatLong[1];
 }
 
 function eventCoord(){
