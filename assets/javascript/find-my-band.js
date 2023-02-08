@@ -9,6 +9,7 @@ $("#search-button").on("click", function(event){
     var userArtistInput = $("#artist-name-search").val();
     var userAddress = $("#address-search").val();
     var userCountryInput = $("#country-selector").val();
+    console.log(userCountryInput);
 
     var countryIndex = countryListAllIsoData.findIndex(e => e.name == userCountryInput);
 
@@ -49,10 +50,17 @@ $("#search-button").on("click", function(event){
                 } else {
                     alert("Zipcode is invalid.");
                 }
-        
+            } else if (userCountryInput == "Canada"){
+                var CANregExp = /^(([ABCEGHJKLMNPRSTVXY][0-9][ABCEGHJKLMNPRSTVWXYZ])\ ?([0-9][ABCEGHJKLMNPRSTVWXYZ][0-9]))$/;
+                if ( CANregExp.test( userAddress ) ) {
+                    generateConcertData();
+                    addressSearch(userInputs[1], userInputs[3]);
+                } else {
+                    alert("Postcode is invalid.");
+                }
             } else {
                 generateConcertData();
-                addressSearch(userInputs[1], userInputs[3]);
+                addressSearch(userInputs[1], userInputs[3]); 
             }
 
     }
