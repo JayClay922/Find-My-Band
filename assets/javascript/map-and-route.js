@@ -3,6 +3,7 @@ let userLat = 51.51237;
 let eventLong = 0.0032;
 let eventLat = 51.5030;
 
+function generateMap() {
 var map = new maplibregl.Map({
   container: "my-map",
   style: "https://api.maptiler.com/maps/streets/style.json?key=" + mapKey,
@@ -189,4 +190,6 @@ function displayMap() {
   $('#view-directions').removeClass('hide')
   $('#route-modal').removeClass('distance')
   $('#route-modal').addClass('hide')
+}
+
 }
