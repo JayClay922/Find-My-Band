@@ -169,4 +169,9 @@ footer{
     border: none;
     margin-top: 0.2rem;
   }
+
+  .dropdown-menu{
+    max-height: 280px;
+    overflow-y: auto;
+  }
   

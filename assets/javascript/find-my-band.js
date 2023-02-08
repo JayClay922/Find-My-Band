@@ -2,6 +2,8 @@
 var savedEvents = JSON.parse(localStorage.getItem("savedEvents")) || [];
 var userInputs = [];
 
+// window.onload = createCountryDropdown();
+
 $("#search-button").on("click", function(event){
     event.preventDefault();
     var userArtistInput = $("#artist-name-search").val();
@@ -12,8 +14,17 @@ $("#search-button").on("click", function(event){
 
     console.log(userInputs);
 
-    generateConcertData();
-    addressSearch(userInputs[1]);
+    for(var i = 0; i < userInputs.length; i++){
+        if(userInputs[i] === "" || userInputs[i] === undefined){ //Validation for empty fields
+            console.log("Missing input");
+        }
+        else{
+            getCountryCode(userInputs[2]);
+
+            generateConcertData();
+            addressSearch(userInputs[1]);
+        }
+    }
 });
 
 if (savedEvents === undefined || savedEvents.length == 0){ //Checks if any saved event data exists in local storage
@@ -59,3 +70,15 @@ $("#back-button-main").on("click", function(){
     $("#results").attr("class", "hide");
     $("#main-search-box").removeClass("hide");
 });
+
+createCountryDropdown = function(){
+    for(var i = 0; i < countryListAllIsoData.length; i++){
+
+        var countryName = countryListAllIsoData[i].name;
+        var countrySelectionElement = $("<option>").text(countryName);
+    
+        $("#country-selector").append(countrySelectionElement);
+    }
+}
+
+createCountryDropdown();

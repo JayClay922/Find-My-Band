@@ -1,4 +1,5 @@
 var userLatLong = [];
+var countryCode = "";
 
 addressSearch = function(address) {
     // let address = $("#artist-name-search").val()
