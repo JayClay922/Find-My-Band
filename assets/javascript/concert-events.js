@@ -125,11 +125,10 @@ generateConcertData = function(){
                     console.log("Directions button clicked");
                     directionIndex = parseInt(clickBtn);
                     eventLatLong = [validCountryVenuesData[directionIndex].latitude, validCountryVenuesData[directionIndex].longitude];
-                    
+                    $('#my-map').addClass('hide')
+                    $('#view-directions').addClass('hide')
                     generateMap();
                     calcDistanceAndTime();
-                    closeModal();
-                    displayMap();
                 }
                 
             });
