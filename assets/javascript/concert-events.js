@@ -153,6 +153,10 @@ getRequiredVenues = function(arr, str){
 }
 
 saveEventLocal = function(obj){
+
+    obj["userLat"] = userLatLong[1];
+    obj["userLong"] = userLatLong[0];
+    
     savedEvents.push(obj); //Pushes object to local storage array
     localStorage.setItem("savedEvents", JSON.stringify(savedEvents)); //Saves to local storage
     console.log("Event saved");
