@@ -40,7 +40,7 @@ $("#search-button").on("click", function(event){
                     generateConcertData();
                     addressSearch(userInputs[1], userInputs[3]);
             } else {
-                alert("Postcode is invalid.");
+                $("#missing-postcode-modal").modal("show");
             }
             } else if (userCountryInput == "United States of America (the)"){
                 var USregExp = /^(\d{5}-\d{4}|\d{5}|[A-Z]\d[A-Z] \d[A-Z]\d)$/;
@@ -48,7 +48,7 @@ $("#search-button").on("click", function(event){
                     generateConcertData();
                     addressSearch(userInputs[1], userInputs[3]);
                 } else {
-                    alert("Zipcode is invalid.");
+                    $("#missing-postcode-modal").modal("show");
                 }
             } else if (userCountryInput == "Canada"){
                 var CANregExp = /^(([ABCEGHJKLMNPRSTVXY][0-9][ABCEGHJKLMNPRSTVWXYZ])\ ?([0-9][ABCEGHJKLMNPRSTVWXYZ][0-9]))$/;
@@ -56,7 +56,7 @@ $("#search-button").on("click", function(event){
                     generateConcertData();
                     addressSearch(userInputs[1], userInputs[3]);
                 } else {
-                    alert("Postcode is invalid.");
+                    $("#missing-postcode-modal").modal("show");
                 }
             } else if(userCountryInput == "Australia"){
                 var AUSregExp = /^(?:(?:[2-8]\d|9[0-7]|0?[28]|0?9(?=09))(?:\d{2}))$/;
@@ -64,7 +64,7 @@ $("#search-button").on("click", function(event){
                     generateConcertData();
                     addressSearch(userInputs[1], userInputs[3]);
                 } else {
-                    alert("Postcode is invalid.");
+                    $("#missing-postcode-modal").modal("show");
                 }
             } else if(userCountryInput == "Germany" || userCountryInput == "Italy" ){
                 var GERORITAregExp = /^\d{5}$/;
@@ -72,7 +72,7 @@ $("#search-button").on("click", function(event){
                     generateConcertData();
                     addressSearch(userInputs[1], userInputs[3]);
                 } else {
-                    alert("Postcode is invalid.");
+                    $("#missing-postcode-modal").modal("show");
                 }
             } else if(userCountryInput == "France"){
                 var FRAregExp = /^(?:0[1-9]|[1-8]\d|9[0-8])\d{3}$/;
@@ -80,7 +80,7 @@ $("#search-button").on("click", function(event){
                     generateConcertData();
                     addressSearch(userInputs[1], userInputs[3]);
                 } else {
-                    alert("Postcode is invalid.");
+                    $("#missing-postcode-modal").modal("show");
                 }
             } else if(userCountryInput == "Spain"){
                 var ESPregExp = /^(?:0[1-9]|[1-4]\d|5[0-2])\d{3}$/;
@@ -88,7 +88,7 @@ $("#search-button").on("click", function(event){
                     generateConcertData();
                     addressSearch(userInputs[1], userInputs[3]);
                 } else {
-                    alert("Postcode is invalid.");
+                    $("#missing-postcode-modal").modal("show");
                 }
             } else if(userCountryInput == "Netherlands (the)"){
                 var NLDregExp = /^(?:NL-)?(?:[1-9]\d{3} ?(?:[A-EGHJ-NPRTVWXZ][A-EGHJ-NPRSTVWXZ]|S[BCEGHJ-NPRTVWXZ]))$/i;
