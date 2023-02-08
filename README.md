@@ -17,9 +17,10 @@ Events can also be saved to access later.
 * Bootstrap
 
 ## Screenshots
-![Find My Band Screenshot 1](assets/images/.....png)
-![Find My Band Screenshot 2](assets/images/.....png)
-![Find My Band Screenshot 3](assets/images/.....png)
+![Find My Band Screenshot 1](assets/images/find-my-band.png)
+![Find My Band Screenshot 2](assets/images/find-my-band-search.png)
+![Find My Band Screenshot 3](assets/images/find-my-band-result.png)
+![Find My Band Screenshot 3](assets/images/find-my-band-directions.png)
 
 ## Contributers
 * [JayClay922](https://github.com/JayClay922)
