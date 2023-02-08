@@ -74,6 +74,30 @@ $("#search-button").on("click", function(event){
                 } else {
                     alert("Postcode is invalid.");
                 }
+            } else if(userCountryInput == "France"){
+                var FRAregExp = /^(?:0[1-9]|[1-8]\d|9[0-8])\d{3}$/;
+                if ( FRAregExp.test( userAddress ) ) {
+                    generateConcertData();
+                    addressSearch(userInputs[1], userInputs[3]);
+                } else {
+                    alert("Postcode is invalid.");
+                }
+            } else if(userCountryInput == "Spain"){
+                var ESPregExp = /^(?:0[1-9]|[1-4]\d|5[0-2])\d{3}$/;
+                if ( ESPregExp.test( userAddress ) ) {
+                    generateConcertData();
+                    addressSearch(userInputs[1], userInputs[3]);
+                } else {
+                    alert("Postcode is invalid.");
+                }
+            } else if(userCountryInput == "Netherlands (the)"){
+                var NLDregExp = /^(?:NL-)?(?:[1-9]\d{3} ?(?:[A-EGHJ-NPRTVWXZ][A-EGHJ-NPRSTVWXZ]|S[BCEGHJ-NPRTVWXZ]))$/i;
+                if ( NLDregExp.test( userAddress ) ) {
+                    generateConcertData();
+                    addressSearch(userInputs[1], userInputs[3]);
+                } else {
+                    alert("Postcode is invalid.");
+                }
             } else {
                 generateConcertData();
                 addressSearch(userInputs[1], userInputs[3]); 
