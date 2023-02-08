@@ -135,11 +135,6 @@ footer{
     color: var(--text);
 }
 
-#routeInfo{
-    color: var(--text);
-    background-color: var(--darkblue);
-}
-
 .distance {
     display: flex;
     flex-direction: column;
@@ -179,7 +174,13 @@ footer{
     overflow-y: auto;
   }
 
+  #route-modal{
+    width: auto;
+  }
+
   #routeInfo{
+    color: var(--text);
+    background-color: var(--darkblue);
     max-height: 280px;
     overflow-y: auto;
   }
