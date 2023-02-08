@@ -110,6 +110,7 @@ function routeInfo() {
     instructionsData.push(journeyObj[i].properties.text);
   }
 
+  $("#routeInfo").empty();
   let routeInfoHeader = $(
     ` <h3 class="px-3 w-100 text-center"> Route Information </h3> `
   );
