@@ -58,11 +58,18 @@ $("#search-button").on("click", function(event){
                 } else {
                     alert("Postcode is invalid.");
                 }
+            } else if(userCountryInput == "Australia"){
+                var AUSregExp = /^(?:(?:[2-8]\d|9[0-7]|0?[28]|0?9(?=09))(?:\d{2}))$/;
+                if ( AUSregExp.test( userAddress ) ) {
+                    generateConcertData();
+                    addressSearch(userInputs[1], userInputs[3]);
+                } else {
+                    alert("Postcode is invalid.");
+                }
             } else {
                 generateConcertData();
                 addressSearch(userInputs[1], userInputs[3]); 
             }
-
     }
 });
 
