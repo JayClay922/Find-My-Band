@@ -1,39 +1,39 @@
 // Artists Events Tracker --------------------------------------------------------------------------------
 var validCountryVenuesData = []; //Empty array to store relevant API data temporarily based on user input
-var eventLatLong = [];
+var eventLatLong = []; //Empty array to store temp even coordinate data used in mapping function
 
 generateConcertData = function(){
     console.log("Finding artist information");
     
-    // var userArtistInputNoSpace = userInputs[0].split(' ').join('%20'); //Replaces spaces with %20 (required for API call url)
-    // var userCountryInput = userInputs[2]; //Takes user inputted country
+    var userArtistInputNoSpace = userInputs[0].split(' ').join('%20'); //Replaces spaces with %20 (required for API call url)
+    var userCountryInput = userInputs[2]; //Takes user inputted country
 
     //---------TEST DATA--------------
     
-    var response = concertEventsTrackerTestResponse;
-    var userCountryInput = "New Zealand";
+    // var response = concertEventsTrackerTestResponse;
+    // var userCountryInput = "New Zealand";
 
     //---------TEST DATA--------------
 
-    // const settings = {
-    //     "async": true,
-    //     "crossDomain": true,
-    //     "url": "https://concerts-artists-events-tracker.p.rapidapi.com/artist?name="+userArtistInputNoSpace+"&page=1",
-    //     "method": "GET",
-    //     "headers": {
-    //         "X-RapidAPI-Key": concertEventsTrackerKey,
-    //         "X-RapidAPI-Host": "concerts-artists-events-tracker.p.rapidapi.com"
-    //     }
-    // };
+    const settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": "https://concerts-artists-events-tracker.p.rapidapi.com/artist?name="+userArtistInputNoSpace+"&page=1",
+        "method": "GET",
+        "headers": {
+            "X-RapidAPI-Key": concertEventsTrackerKey,
+            "X-RapidAPI-Host": "concerts-artists-events-tracker.p.rapidapi.com"
+        }
+    };
     
-    // $.ajax(settings).done(function (response) {
-    //     console.log(response);
-    //     if(response.data === undefined || response.data.length === 0){ //Checks if artist exsits
-    //         console.log("Artist not found");
-    //         $("#artist-not-found").modal("show");
-    //         return;
-    //     }
-    //     else{
+    $.ajax(settings).done(function (response) {
+        console.log(response);
+        if(response.data === undefined || response.data.length === 0){ //Checks if artist exists
+            console.log("Artist not found");
+            $("#artist-not-found").modal("show");
+            return;
+        }
+        else{
             var tempArtistPerformanceData = []; //Temporary array for artist venues
             var tempArtistInfoData = {}; //Temporary Object for artist data
     
@@ -62,7 +62,6 @@ generateConcertData = function(){
                 tempArtistPerformanceData.push(tempDataObject); //Adds temp object to temp array
             }
     
-            console.log(tempArtistPerformanceData);
             validateCountryInput(tempArtistPerformanceData, userCountryInput); //Checks if the venue data contains user inputted country
             getRequiredVenues(tempArtistPerformanceData, userCountryInput); //Creates new array containing only instances of venues in user's inputted country
     
@@ -84,7 +83,7 @@ generateConcertData = function(){
                 var description = $("<p>").text(validCountryVenuesData[i].description);
                 var viewDirections = $("<a>").attr({
                     class: "btn btn-primary",
-                    "data-id": i+ "-directions"});
+                    "data-id": i+ "-directions"}); //The Save and direction buttons are all given a unique id which corresponds to the index in which their card data is stored
                 viewDirections.text("Directions");
                 var saveEvent = $("<a>").attr({
                     class: "btn btn-primary",
@@ -105,13 +104,13 @@ generateConcertData = function(){
                 $('.carousel-item').first().addClass('active'); //Sets first card to be active to enable the carousel to work
             }
 
-            $("#main-search-box").addClass("hide");
+            $("#main-search-box").addClass("hide"); //Hides search box and displays results
             $("#results").removeClass("hide");
     
             $("a").on("click", function(){
                 var clickBtn = $(this).data('id'); //Returns ID of event card clicked
 
-                let saveBtn = clickBtn.includes('saveEvent'); //Checks if clicked button is for sve or directions
+                let saveBtn = clickBtn.includes('saveEvent'); //Checks if clicked button is for save or directions
                 let directionBtn = clickBtn.includes('directions');
 
                 if (saveBtn === true) { 
@@ -121,21 +120,21 @@ generateConcertData = function(){
                 }
                 if (directionBtn === true) {
                     console.log("Directions button clicked");
-                    directionIndex = parseInt(clickBtn);
-                    eventLatLong = [validCountryVenuesData[directionIndex].latitude, validCountryVenuesData[directionIndex].longitude];
+                    directionIndex = parseInt(clickBtn); //Takes Event ID from button
+                    eventLatLong = [validCountryVenuesData[directionIndex].latitude, validCountryVenuesData[directionIndex].longitude]; //Sets coordinates from selected event to be used in map function
                     $('#my-map').addClass('hide')
                     $('#view-directions').addClass('hide')
-                    generateMap();
-                    calcDistanceAndTime();
+                    generateMap(); //Generates map
+                    calcDistanceAndTime(); //Calculates the distance to the event from the user's location as well as the time it will take to drive
                 }
                 
             });
         }
-//     });
-// }
+    });
+}
 
 validateCountryInput = function(arr, str){
-    const i = arr.findIndex(e => e.address.addressCountry === str);
+    const i = arr.findIndex(e => e.address.addressCountry === str); //Checks if the user's inputted country is found in the artist's upcoming events
     if (i > -1) {
         console.log("Reponse contains inputted country at index "+ i);
     }
@@ -146,7 +145,7 @@ validateCountryInput = function(arr, str){
     }
 }
 
-getRequiredVenues = function(arr, str){
+getRequiredVenues = function(arr, str){ //Function to return only venues located in user's country
     validCountryVenuesData = arr.filter(function(e){
         return e.address.addressCountry === str;
     })
@@ -154,15 +153,16 @@ getRequiredVenues = function(arr, str){
 
 saveEventLocal = function(obj){
 
-    obj["userLat"] = userLatLong[1];
+    obj["userLat"] = userLatLong[1]; //Adds user's inputted location to temporary data object
     obj["userLong"] = userLatLong[0];
     
     savedEvents.push(obj); //Pushes object to local storage array
     localStorage.setItem("savedEvents", JSON.stringify(savedEvents)); //Saves to local storage
     console.log("Event saved");
+    $("#event-saved").modal("show");
 }
 
-displaySavedEvents = function(){
+displaySavedEvents = function(){ //Function which displays data from local storage
     if (savedEvents === undefined || savedEvents.length == 0){
         $("#placeholder").removeClass("hide");
         console.log("No saved events found");

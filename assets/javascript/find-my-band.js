@@ -1,8 +1,6 @@
 
-var savedEvents = JSON.parse(localStorage.getItem("savedEvents")) || [];
-var userInputs = [];
-
-// window.onload = createCountryDropdown();
+var savedEvents = JSON.parse(localStorage.getItem("savedEvents")) || []; //Loads local storage
+var userInputs = []; //Temp array for user inputs
 
 $("#search-button").on("click", function(event){
     event.preventDefault();
@@ -11,7 +9,7 @@ $("#search-button").on("click", function(event){
     var userCountryInput = $("#country-selector").val();
     console.log(userCountryInput);
 
-    var countryIndex = countryListAllIsoData.findIndex(e => e.name == userCountryInput);
+    var countryIndex = countryListAllIsoData.findIndex(e => e.name == userCountryInput); //Finds user inputted country in country info array, in order to return the country code
 
     if(userArtistInput === "" || userArtistInput === undefined){ //Validation for empty fields
         console.log("Missing Artist Input");
@@ -28,7 +26,7 @@ $("#search-button").on("click", function(event){
         $("#missing-country-modal").modal("show");
         return;
     }
-    else{
+    else{ //Validation for postcodes varying by country
         
         var userCountryCode = countryListAllIsoData[countryIndex].code.toLowerCase();
         userInputs = [userArtistInput, userAddress, userCountryInput, userCountryCode];
@@ -99,8 +97,8 @@ $("#search-button").on("click", function(event){
                     $("#missing-postcode-modal").modal("show");
                 }
             } else {
-                generateConcertData();
-                addressSearch(userInputs[1], userInputs[3]); 
+                generateConcertData(); //API Call to get event data
+                addressSearch(userInputs[1], userInputs[3]); //API call to convert postcode & country into latitude, longitude coordinates
             }
     }
 });
@@ -114,7 +112,7 @@ $("#saved-events-button").on("click", function(){
 });
 
 
-if($("body").is(".saved-event-page")){
+if($("body").is(".saved-event-page")){ //When the user visits the 'Saved Events' page, the local storage data is used to populate the page
     displaySavedEvents();
     console.log("Loaded saved events");
 
@@ -156,7 +154,7 @@ $("#back-button-main").on("click", function(){
     $("#main-search-box").removeClass("hide");
 });
 
-createCountryDropdown = function(){
+createCountryDropdown = function(){ //Users array of countries to create dropdown list
     for(var i = 0; i < countryListAllIsoData.length; i++){
 
         var countryName = countryListAllIsoData[i].name;
