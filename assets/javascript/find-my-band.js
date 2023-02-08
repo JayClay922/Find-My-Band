@@ -11,27 +11,20 @@ $("#search-button").on("click", function(event){
     var userCountryInput = $("#country-selector").val();
 
     var countryIndex = countryListAllIsoData.findIndex(e => e.name == userCountryInput);
-    if (i > -1) {
-        console.log("Reponse contains inputted country at index "+ i);
-    }
 
     var userCountryCode = countryListAllIsoData[countryIndex].code.toLowerCase();
-    
     userInputs = [userArtistInput, userAddress, userCountryInput, userCountryCode]; //Use this array to get any of the user inputs where needed
 
     console.log(userInputs);
 
-    for(var i = 0; i < userInputs.length; i++){
-        if(userInputs[i] === "" || userInputs[i] === undefined){ //Validation for empty fields
+    for(var j = 0; j < userInputs.length; j++){
+        if(userInputs[j] === "" || userInputs[j] === undefined){ //Validation for empty fields
             console.log("Missing input");
         }
-        else{
-            getCountryCode(userInputs[2]);
-
-            generateConcertData();
-            addressSearch(userInputs[1]);
-        }
     }
+
+    generateConcertData();
+    addressSearch(userInputs[1], userInputs[3]);
 });
 
 if (savedEvents === undefined || savedEvents.length == 0){ //Checks if any saved event data exists in local storage
