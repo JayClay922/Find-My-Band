@@ -141,11 +141,11 @@ $("a").on("click", function(){
         console.log("Directions button clicked");
         directionIndex = parseInt(clickBtn);
         eventLatLong = [savedEvents[directionIndex].latitude, savedEvents[directionIndex].longitude];
-        userLatLong = [savedEvents[directionIndex].userLat, savedEvents[directionIndex].userLong];
+        userLatLong = [savedEvents[directionIndex].userLong, savedEvents[directionIndex].userLat];
         $('#my-map').addClass('hide')
         $('#view-directions').addClass('hide')
         generateMap();
-        calcDistanceAndTime();
+        displayMap();
     }
 });
 
