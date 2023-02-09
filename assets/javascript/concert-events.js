@@ -123,8 +123,9 @@ generateConcertData = function(){
                     console.log("Directions button clicked");
                     directionIndex = parseInt(clickBtn); //Takes Event ID from button
                     eventLatLong = [validCountryVenuesData[directionIndex].latitude, validCountryVenuesData[directionIndex].longitude]; //Sets coordinates from selected event to be used in map function
-                    $('#my-map').addClass('hide')
-                    $('#view-directions').addClass('hide')
+                    $('#placeholder-map').addClass('hide');
+                    $('#my-map').addClass('hide');
+                    $('#view-directions').addClass('hide');
                     generateMap(); //Generates map
                     calcDistanceAndTime(); //Calculates the distance to the event from the user's location as well as the time it will take to drive
                 }
