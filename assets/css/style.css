@@ -118,6 +118,8 @@ footer{
 .map-display{
     display: flex;
     flex-direction: column;
+    background-color: var(--darkblue);
+    border-radius: 10px;
 }
 
 #saved-events{
@@ -191,6 +193,10 @@ footer{
     background-color: var(--darkblue);
     max-height: 280px;
     overflow-y: auto;
+  }
+
+  #placeholder-map{
+    color: white;
   }
 
   @media only screen and (max-width: 600px) {
