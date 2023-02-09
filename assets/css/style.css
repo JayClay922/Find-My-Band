@@ -135,6 +135,11 @@ footer{
     color: var(--text);
 }
 
+#savedmap-and-route{
+    background-color: var(--darkblue);
+    border-radius: 10px;
+}
+
 .distance {
     display: flex;
     flex-direction: column;
