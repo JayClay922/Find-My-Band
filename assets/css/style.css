@@ -172,6 +172,8 @@ footer{
     padding: 0.5rem 0.7rem;
     border: none;
     margin-top: 0.2rem;
+    background-color: var(--darkblue);
+    color: white;
   }
 
   .dropdown-menu{
