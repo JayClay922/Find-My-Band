@@ -27,7 +27,9 @@ generateConcertData = function(){
     };
     
     $.ajax(settings).done(function (response) {
+
         console.log(response);
+
         if(response.data === undefined || response.data.length === 0){ //Checks if artist exists
             console.log("Artist not found");
             $("#artist-not-found").modal("show");
@@ -48,7 +50,8 @@ generateConcertData = function(){
             $("#artist-bio").append(artistImg);
             $("#artist-bio").append(artistName);
             
-    
+            validateResponseLatLong(response.data);
+
             for (var i = 0; i < response.data.length; i++){
                 var tempDataObject = {}; //Temporary Object for venue data
         
@@ -151,6 +154,19 @@ getRequiredVenues = function(arr, str){ //Function to return only venues located
     validCountryVenuesData = arr.filter(function(e){
         return e.address.addressCountry === str;
     })
+}
+
+validateResponseLatLong = function(arr){ //Ensures response contains lat long data
+
+    for(var k = 0; k < arr.length; k++) {
+        if(!(arr[k].location.hasOwnProperty("geo"))){
+            console.log('Lat Long not found');
+            arr.splice(k, 1); //removes any event object without lat long data
+        }
+        else{
+            console.log('Valid Data'); 
+        }
+    }
 }
 
 saveEventLocal = function(obj){
