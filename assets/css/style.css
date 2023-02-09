@@ -33,6 +33,7 @@ section{
     justify-content: center;
     align-items: center;
     margin-bottom: 1%;
+    width:auto;
 }
 
 .artistName{
@@ -192,4 +193,8 @@ footer{
     overflow-y: auto;
   }
 
-  
+  @media only screen and (max-width: 600px) {
+    .artistName {
+      font-size: 5ch;
+    }
+  }
