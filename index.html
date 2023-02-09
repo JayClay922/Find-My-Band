@@ -21,7 +21,7 @@
     <header>
         <!-- Remove bg-dark class if changing styles  -->
         <nav class="navbar navbar-dark justify-content-space-evenly">
-            <button class="btn btn-lg btn-outline-primary hide" id="back-button-main" type="button">Back</button>
+            <button class="btn btn-lg btn-outline-primary hide" id="back-button-main" type="button" onClick = "window.location.reload()">Back</button>
             <span class="navbar-brand mb-1 h1">Find My Band</span>
             <button class="btn btn-lg btn-outline-primary" id="saved-events-button" type="button">Saved Events</button>
         </nav>
@@ -96,7 +96,7 @@
             No events found in specified country.
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal" onClick = "window.location.reload()">Back</button>
             </div>
           </div>
         </div>
@@ -264,7 +264,7 @@
     <script src="https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.js"></script>
 
     <!-- link to find-my-band.js -->
-    <script src="assets/javascript/key.js"></script>
+    <script src="assets/javascript/public-keys.js"></script>
     <script src="assets/javascript/test-data.js"></script>
     <script src="assets/javascript/concert-events.js"></script>
     <script src="assets/javascript/find-my-band.js"></script>

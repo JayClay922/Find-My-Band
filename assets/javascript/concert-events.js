@@ -40,8 +40,8 @@ generateConcertData = function(){
             tempArtistInfoData["artist"] = response.data[0].name;
             tempArtistInfoData["image"] = response.data[0].image;
     
-            var artistImg = $("<div>").attr("class", "artistImg"); //Creates artist bio using artist name and image
-            artistImg.css("background-image", "url("+ response.data[0].image+ ")");
+            var artistImg = $("<img>").attr("class", "artistImg");
+            artistImg.attr("src", response.data[0].image); //Creates artist bio using artist name and image
             var artistName= $("<h2>").attr("class", "artistName");
             artistName.text(response.data[0].name);
 
@@ -64,7 +64,8 @@ generateConcertData = function(){
     
             validateCountryInput(tempArtistPerformanceData, userCountryInput); //Checks if the venue data contains user inputted country
             getRequiredVenues(tempArtistPerformanceData, userCountryInput); //Creates new array containing only instances of venues in user's inputted country
-    
+            
+            $("#back-button-main").removeClass("hide");
             console.log(validCountryVenuesData);
     
             for (var i = 0; i < validCountryVenuesData.length; i++){ //Loops through tempt data and creates a card for each venue
