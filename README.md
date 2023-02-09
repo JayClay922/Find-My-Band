@@ -8,7 +8,7 @@ Using three API's, the web application will return the results from your inputte
 
 Events can also be saved to access later. 
 
-[Click here](....) to view the application.
+[Click here](https://jayclay922.github.io/Find-My-Band/index.html) to view the application.
 
 ## Built with
 * HTML5
