@@ -185,7 +185,7 @@ function calcDistanceAndTime() {
       <button class="btn-close" onclick="closeModal()" >⨉</button>
       </div>
       <div>
-      <h3>Route to ....</h3>
+      <h3>Route to concert</h3>
       <p>
       The distance from your address to the event is ${displayDisatnce} miles.
       </p>
